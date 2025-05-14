@@ -2,30 +2,55 @@
 package engine;
 
 import championAssets.*;
+import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import server.ClientData;
+import server.GameCommand;
 import textManagement.Loggers;
 
-public class Fight implements GameActions {
+public class Fight implements Runnable {
 
-    private final TurnManager tm;
+    public final TurnManager tm;
+    String gameId;
     private final StatisticTable st;
     private Champion winner;
+    private ArrayList<Champion> championsList;
+
     Scanner input = new Scanner(System.in);
 
-    public Fight(TurnManager tm, StatisticTable st) {
-        this.tm = tm;
-        this.st = st;
+    public Fight(String gameId, ClientData player1, ClientData player2, Map<String, Integer> fightWinners) {
+        this.gameId = gameId;
+        this.tm = new TurnManager(this, player1, player2);
+        this.st = new StatisticTable(player1, player2, tm);
+        this.championsList = new ArrayList<>();
+    }
+
+    @Override
+    public void run() {
+        startGame();
+    }
+
+    public void startGame() {
+        Loggers.logMessage("=================================================\n[" + tm.getCurrentChampion().getName() + "] vs [" + tm.getNextChampion().getName() + "]", true, false);
+        Loggers.clearScreen();
+        Loggers.logMessage("Champions description: " + tm.getCurrentChampion() + tm.getCurrentChampion().printAbilities() + tm.getNextChampion() + tm.getNextChampion().printAbilities(), false, true);
+        tm.whoStart();
+        Loggers.logMessage("Fight start: \n[" + tm.getCurrentPlayer().getName() + "] with his champion [" + tm.getCurrentChampion().getName() + "]", false, true);
+        Loggers.logMessage("His opponent is : \n[" + tm.getNextPlayer().getName() + "] with his champion [" + tm.getNextChampion().getName() + "]", false, true);
+        startFight();
     }
 
     //Start fight 
-    @Override
-    public void start() {
+    public void startFight() {
         tm.setTotalMovesCount(0);
         fightLoop();
         end();
     }
 
-    @Override
+//    @Override
     public void end() {
         st.displayBattleStatistics();
         String mess = "";
@@ -34,10 +59,14 @@ public class Fight implements GameActions {
             tm.getNextPlayer().addWin();
             //Not working wgile first argument is Champion(and not String)
             setWinner(tm.getNextChampion());
+            tm.getNextPlayer().sendToMe(GameCommand.RESULT_WIN.toString());
+            tm.getCurrentPlayer().sendToMe(GameCommand.RESULT_LOSE.toString());
         } else if (tm.getNextPlayer().getChampion().getHP() <= 0) {
             mess = "[" + tm.getNextChampion().getName() + "]Died... [" + tm.getCurrentChampion().getName() + "]is a WINNER ";
             tm.getCurrentPlayer().addWin();
             setWinner(tm.getCurrentChampion());
+            tm.getCurrentPlayer().sendToMe(GameCommand.RESULT_WIN.toString());
+            tm.getNextPlayer().sendToMe(GameCommand.RESULT_LOSE.toString());
         } else {
             mess = "[ALMOST IMPOSSIBLE]TIE[" + tm.getNextChampion().getName() + "] and [" + tm.getCurrentChampion().getName() + "]DIED!";
         }
@@ -46,26 +75,60 @@ public class Fight implements GameActions {
         }
     }
 
+    private void sendActualInformation(String info) {
+        if(!info.trim().equals("")) sendLogMessage(info);
+        tm.getCurrentPlayer().sendToMe(
+                GameCommand.APPLY_STATE + ">"
+                + gameId + ">"
+                + tm.getCurrentPlayer().getName() + ">"
+                + tm.getCurrentChampion().getHP() + ">"
+                + tm.getNextPlayer().getName() + ">"
+                + tm.getNextChampion().getHP()
+        );
+        tm.getNextPlayer().sendToMe(
+                GameCommand.APPLY_STATE + ">"
+                + gameId + ">"
+                + tm.getNextPlayer().getName() + ">"
+                + tm.getNextChampion().getHP() + ">"
+                + tm.getCurrentPlayer().getName() + ">"
+                + tm.getCurrentChampion().getHP()
+        );
+    }
+    protected void sendLogMessage(String mess){
+        tm.getCurrentPlayer().sendToMe(
+                GameCommand.APPLY_LOGS + ">" +
+                        mess
+        );
+        tm.getNextPlayer().sendToMe(
+                GameCommand.APPLY_LOGS + ">" +
+                        mess
+        );
+    }
     //Main fight file
     private void fightLoop() {
         do {
             int wybor;
             Champion ally = tm.getCurrentChampion();
             Champion enemy = tm.getNextChampion();
+            String info = "[" + tm.getCurrentPlayer().getName() + "][" + ally.getName() + "] ITS YOUR TURN!";
             tm.setTourPoint(0);
             tm.effectsManagement();
             tm.rangeCheck();
             if (tm.getTourPoint() <= 2) {
-                Loggers.logMessage("[" + tm.getCurrentPlayer().getName() + "][" + ally.getName() + "] ITS YOUR TURN!", false, true);
+                Loggers.logMessage("[SERVER][" + tm.getCurrentPlayer().getName() + "][" + ally.getName() + "] ITS YOUR TURN!", false, true);
+//                info += "[" + tm.getCurrentPlayer().getName() + "][" + ally.getName() + "] ITS YOUR TURN!";
             }
+            System.out.println("INFO VALUE:" + info);
+            sendActualInformation(info);
             while (!tm.isGameOver() && tm.getTourPoint() <= 2) {
+                info = "";
                 String hp1 = String.format("%.2f", ally.getHP());
                 String hp2 = String.format("%.2f", enemy.getHP());
                 Loggers.logMessage(
                         "[" + ally.getName() + "] HP: " + hp1 + "\n"
                         + "[" + enemy.getName() + "] HP: " + hp2 + "\n\n"
                         + "Move: " + (tm.getTourPoint() + 1) + "/3\n"
-                        + "[1]Attack [" + ally.getAttackDamage() + "]" , false, true);
+                        + "[1]Attack [" + ally.getAttackDamage() + "]", false, true);
                 int i = 0;
                 for (Ability a : ally.getAbilities()) {
                     Loggers.logMessage("[" + (i++ + 2) + "]" + a.getName() + " [" + a.getValue() + "]" + "[Uses " + a.getUsesLeft() + "]", false, true);
@@ -75,7 +138,14 @@ public class Fight implements GameActions {
                                 [99]End move
                                 [135]Forfeit
                                 [0]Wyczysc""", false, true);
-                wybor = Loggers.choiceValidator(input);
+//                wybor = Loggers.choiceValidator(input);
+                String moveStr = "-1";
+                try {
+                    moveStr = tm.getCurrentPlayer().takeCommand();
+                } catch (InterruptedException ex) {
+                    System.out.println(ex);
+                }
+                wybor = Integer.parseInt(moveStr) + 1;
                 switch (wybor) {
                     case 1:
                         tm.addTourPoint(1);
@@ -93,11 +163,14 @@ public class Fight implements GameActions {
                             if (ability.getUsesLeft() > 0) {
                                 tm.addTourPoint(1);
                                 tm.useAbility(ability);
+                                tm.getCurrentPlayer().sendToMe(GameCommand.APPLY_ABILITY_COUNT + ">" + abilityIndex);
                             } else {
                                 Loggers.logMessage("Ability " + ability.getName() + " has no uses left!", false, true);
+                                info += "Ability " + ability.getName() + " has no uses left!";
                             }
                         } else {
                             Loggers.logMessage(ally.getName() + " does not have " + (abilityIndex + 2) + " abilities!", false, true);
+                            info += ally.getName() + " does not have " + (abilityIndex + 2) + " abilities!";
                         }
                         break;
                     case 10:
@@ -118,6 +191,8 @@ public class Fight implements GameActions {
                         break;
                 }
                 Loggers.logMessage("=================================================", false, true);
+                System.out.println("INFO VALUE IN WHILE:" + info);
+                sendActualInformation(info);
             }
             tm.endTurn();
         } while (!tm.isGameOver());

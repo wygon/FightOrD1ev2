@@ -1,15 +1,16 @@
 //Szymon Wygoński
 package engine;
 
+import server.ClientData;
 import textManagement.Loggers;
 
 public class StatisticTable {
 
-    private Player player1;
-    private Player player2;
+    private ClientData player1;
+    private ClientData player2;
     private TurnManager tm;
 
-    public StatisticTable(Player player1, Player player2, TurnManager turnManager) {
+    public StatisticTable(ClientData player1, ClientData player2, TurnManager turnManager) {
         this.player1 = player1;
         this.player2 = player2;
         this.tm = turnManager;
@@ -18,11 +19,11 @@ public class StatisticTable {
     public StatisticTable() {
     }
 
-    public Player getPlayer1() {
+    public ClientData getPlayer1() {
         return player1;
     }
 
-    public Player getPlayer2() {
+    public ClientData getPlayer2() {
         return player2;
     }
 
@@ -30,11 +31,11 @@ public class StatisticTable {
         return tm;
     }
 
-    public void setPlayer1(Player player1) {
+    public void setPlayer1(ClientData player1) {
         this.player1 = player1;
     }
 
-    public void setPlayer2(Player player2) {
+    public void setPlayer2(ClientData player2) {
         this.player2 = player2;
     }
 

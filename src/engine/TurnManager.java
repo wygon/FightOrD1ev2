@@ -3,22 +3,33 @@ package engine;
 
 import championAssets.*;
 import java.util.Random;
+import server.ClientData;
+import server.GameCommand;
 import textManagement.Loggers;
 
 public class TurnManager {
 
-    private Player cp;
-    private Player np;
+    private ClientData cp;
+    private ClientData np;
+    private Fight f;
     private int tourPoint;
     private int totalMovesCount;
     private Random rand;
 
-    public TurnManager(Player player1, Player player2) {
-        this.rand = new Random();
+//    public TurnManager(Player player1, Player player2) {
+//        this.rand = new Random();
+//        this.cp = player1;
+//        this.np = player2;
+//        this.tourPoint = 0;
+//        this.totalMovesCount = 0;
+//    }
+    public TurnManager(Fight f, ClientData player1, ClientData player2) {
         this.cp = player1;
         this.np = player2;
+        this.f = f;
         this.tourPoint = 0;
         this.totalMovesCount = 0;
+        this.rand = new Random();
     }
 
     public TurnManager() {
@@ -29,13 +40,13 @@ public class TurnManager {
 
     //Swapping players to enable tour gameplay.
     public void swapPlayers() {
-        Player fakePlayer = np;
+        ClientData fakePlayer = np;
         np = cp;
         cp = fakePlayer;
     }
 
     //Function whoStart is returning Player who is starting game.
-    public Player whoStart() {
+    public ClientData whoStart() {
         int n = rand.nextInt(2);
         if (n == 0) {
             return cp;
@@ -165,6 +176,7 @@ public class TurnManager {
             Loggers.logMessage("=================================================", false, true);
             Loggers.logMessage(mess, true, true);
             ability.addUsesLeft(-1);
+            f.sendLogMessage(mess);
         }
     }
 
@@ -181,24 +193,27 @@ public class TurnManager {
                 getCurrentChampion().addHP(getCurrentChampion().getPoisonDmg());
                 mess += "[PASSIVE][" + getCurrentChampion().getName() + "] poisoned damage " + getCurrentChampion().getPoisonDmg();
             }
+            f.sendLogMessage(mess);
         }
         //Lifesteal management
         if (getNextChampion().getSpecialSpellType() == SpellType.LIFESTEAL) {
             if (!mess.equals("")) {
-                mess += "\n";
+                mess = "";
             }
             if (getTotalMovesCount() >= getNextChampion().getSpecialSpellMove()) {
                 getNextChampion().setSpecialSpellType(SpellType.OFF);
-                mess += "[PASSIVE][" + getCurrentChampion().getName() + "]Lifesteal ended";
+//                mess += "[PASSIVE][" + getCurrentChampion().getName() + "]Lifesteal ended";
+                mess += "[PASSIVE][" + getNextChampion().getName() + "]Lifesteal ended";
             } else {
                 getNextChampion().addHP((getCurrentChampion().getLastRoundHP() - getCurrentChampion().getHP()) * (getNextChampion().getSpecialSpellValue()) * 0.02);
                 mess += "[PASSIVE][" + getNextChampion().getName() + "]Healed for " + String.format("%.2f", (getCurrentChampion().getLastRoundHP() - getCurrentChampion().getHP()) * (getNextChampion().getSpecialSpellValue()) * 0.02);
             }
+            f.sendLogMessage(mess);
         }
         //Thorns management
         if (getCurrentChampion().getSpecialSpellType() == SpellType.THORNS) {
             if (!mess.equals("")) {
-                mess += "\n";
+                mess = "";
             }
             if (getTotalMovesCount() >= getCurrentChampion().getSpecialSpellMove()) {
                 getCurrentChampion().setSpecialSpellType(SpellType.OFF);
@@ -208,25 +223,30 @@ public class TurnManager {
                 getNextChampion().addHP(-(getCurrentChampion().getLastRoundHP() - getCurrentChampion().getHP()) * (getCurrentChampion().getSpecialSpellValue() * 0.015));
                 mess += "[PASSIVE]Thorns hit [" + getNextChampion().getName() + "] for " + String.format("%.2f", (getCurrentChampion().getLastRoundHP() - getCurrentChampion().getHP()) * (getCurrentChampion().getSpecialSpellValue() * 0.015));
             }
+            f.sendLogMessage(mess);
         }
         if (!mess.equals("")) {
             Loggers.logMessage(mess, true, true);
             Loggers.logMessage("=================================================", false, true);
+//            f.sendLogMessage(mess);  
         }
     }
 
     //Checking - if: range is okay to start fight - if not: ending tour
-    public void rangeCheck() {
+    public String rangeCheck() {
         //Decreasing range - if: champion is far away
         if (getCurrentChampion().getDistancePoint() < getNextChampion().getDistancePoint()) {
             getNextChampion().addDistancePoint(-1);
 //            effectsManagement();
-            String mess = "[" + getTotalMovesCount() + "][" + getTourPoint() + "/3] " + getCurrentChampion().getName() + " is losing tour caused by range difference.";
+            String mess = GameCommand.APPLY_LOGS + ">" + "[" + getTotalMovesCount() + "][" + getTourPoint() + "/3] " + getCurrentChampion().getName() + " is losing tour caused by range difference.";
             Loggers.logMessage(mess + "\n=================================================", false, true);
             mess += getNextPlayer().getName() + " [" + getNextChampion().getName() + "] ITS YOUR TURN!";
             Loggers.logMessage(mess, true, false);
             setTourPoint(3);
+            if(!mess.equals(GameCommand.APPLY_LOGS.toString() + ">"))
+                return mess;
         }
+        return "";
     }
 
     //Function endTurn() is responsible for manage things after single player tour
@@ -240,11 +260,11 @@ public class TurnManager {
         return getCurrentPlayer().getChampion().getHP() <= 0 || getNextPlayer().getChampion().getHP() <= 0;
     }
 
-    public Player getCurrentPlayer() {
+    public ClientData getCurrentPlayer() {
         return cp;
     }
 
-    public Player getNextPlayer() {
+    public ClientData getNextPlayer() {
         return np;
     }
 
@@ -264,11 +284,11 @@ public class TurnManager {
         return totalMovesCount;
     }
 
-    public void setCurrentPlayer(Player currentPlayer) {
+    public void setCurrentPlayer(ClientData currentPlayer) {
         this.cp = currentPlayer;
     }
 
-    public void setNextPlayer(Player nextPlayer) {
+    public void setNextPlayer(ClientData nextPlayer) {
         this.np = nextPlayer;
     }
 

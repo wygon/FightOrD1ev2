@@ -48,5 +48,4 @@ public class Player {
     public void addWin() {
         this.wins++;
     }
-
 }

@@ -1,5 +1,7 @@
 package server;
 
+import championAssets.Champion;
+import engine.*;
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -25,7 +27,8 @@ public class ClientHandler extends Thread {
     // it is a static variable, so each object can access it
     static HashSet<ClientData> clients = new HashSet<ClientData>();
     static Queue<ClientData> playersQueue = new LinkedList<>();
-    static Map<String, Pair> activeGames = new HashMap<>();
+    static Map<String, Fight> activeGames = new HashMap<>();
+    static Map<String, Integer> fightWinners = new HashMap<>();
     // a constructor, it prepares appriopriate streams associated to a socket
     public ClientHandler(Socket socket) throws IOException {
         this.socket = socket;
@@ -36,7 +39,7 @@ public class ClientHandler extends Thread {
     
     public void sendToAll(String senderName, String message){
         for (ClientData client : clients) 
-            client.sendToMe("[" + senderName + "]", message);
+            client.sendToMe("[" + senderName + "]" + message);
     }
 
     void printClients() {
@@ -94,78 +97,99 @@ public class ClientHandler extends Thread {
         System.out.println("Command: " + command);
         if(command.equals(GameCommand.FIND.toString())){
             String championName = parts[1];
-            me.choosenChampion = championName;
+            me.chosenChampionName = championName;
             if(!playersQueue.isEmpty()) {
                 ClientData enemy = playersQueue.poll();
+                Optional<Champion> mechamp = GameServer.championsList.stream()
+                        .filter(p -> p.getName().equals(me.chosenChampionName))
+                        .findAny();
+                me.chosenChampion = mechamp.get();
+
+                System.out.println("MOJ CHAMPION " + me.name + " " + me.chosenChampion.getName());
+                System.out.println("Enemy CHAMPION " + enemy.name + " " + enemy.chosenChampion.getName());
+                String gameId = UUID.randomUUID().toString().substring(0,8);
+                Fight f = new Fight(gameId, me, enemy, fightWinners);
+                new Thread(f).start();
+                me.setMyGameId(gameId);
+                enemy.setMyGameId(gameId);
                 me.out.println(GameCommand.FOUND + ">" + "1" + ">" + 
                         enemy.name + ">" + 
-                        enemy.choosenChampion);
+                        enemy.chosenChampionName);
                 enemy.out.println(GameCommand.FOUND + ">" + "1" + ">" + 
                         me.name + ">" + 
-                        me.choosenChampion);
-                
-//                HashMap<ClientData, ClientData> game = new HashMap<>();
-//                game.put(me, enemy);
-                Pair game = new Pair(me, enemy);
-                activeGames.put("1", game);
+                        me.chosenChampionName);
+//                Pair game = new Pair(me, enemy);
+                activeGames.put(gameId, f);
             } else {
               playersQueue.add(me);
+              Optional<Champion> mechamp = GameServer.championsList.stream()
+                        .filter(p -> p.getName().equals(me.chosenChampionName))
+                        .findAny();
+                me.chosenChampion = mechamp.get();
               me.out.println(GameCommand.WAITING);
             }
         } 
         else if(command.equals(GameCommand.FORFEIT.toString())) {
+            Fight f = activeGames.get(me.myGameId);
             String gameId = parts[1];
             ClientData winner;
-            Pair pl = activeGames.get(gameId);
+//            Pair pl = activeGames.get(gameId);
             me.out.println(GameCommand.FORFEIT);
-            if(me == pl.left){
-                pl.right.out.println(GameCommand.ENEMY_FORFEIT.toString());
-                winner = pl.right;
+            if(me == f.tm.getCurrentPlayer()){
+                f.tm.getNextPlayer().out.println(GameCommand.ENEMY_FORFEIT.toString());
+                winner = f.tm.getNextPlayer();
             }
             else{
-                pl.left.out.println(GameCommand.ENEMY_FORFEIT.toString());
-                winner = pl.left;
+                f.tm.getCurrentPlayer().out.println(GameCommand.ENEMY_FORFEIT.toString());
+                winner = f.tm.getCurrentPlayer();
             }
             
-            gameEnd(gameId, pl, winner);
+            gameEnd(gameId, f, winner);
         }
         else if(command.equals(GameCommand.ATTACK.toString())) {
+            
+            Fight f = activeGames.get(me.myGameId);
+            ClientData currentTurnPlayer = f.tm.getCurrentPlayer();
+            if(me != currentTurnPlayer){
+                me.out.println(GameCommand.NOT_YOUR_TURN.toString());
+                return;
+            }
             String gameId = parts[1];
             String name = parts[2];
             String ability = parts[3];
-            Pair pl = activeGames.get(gameId);
+//            Pair pl = activeGames.get(gameId);
             ClientData target;
-            if(me == pl.left){
-                target = pl.right;
+            if(me == f.tm.getCurrentPlayer()){
+                target = f.tm.getNextPlayer();
             } else {
-                target = pl.left;
+                target = f.tm.getCurrentPlayer();
             }
-            
-            applyRoundHpTest(pl, gameId, name, target);
+//            applyRoundHpTest(pl, gameId, name, target, ability);
+            me.addCommand(ability);
         }
         else {System.out.println("Other command");}
     }
-    public void gameEnd(String gameId, Pair pl, ClientData winner) {
+    public void gameEnd(String gameId, Fight f, ClientData winner) {
         sendToAll("SERVER", "GAME BETWEEN\n" + 
-                pl.left.name + " & " +
-                pl.right.name + "\n WON " + 
+                f.tm.getNextPlayer().name + " & " +
+                f.tm.getNextPlayer().name + "\n WON " + 
                 winner.name.toUpperCase() + " CONGRATULATIONS");
     }
-    public void applyRoundHpTest(Pair pl, String gameId, String name, ClientData target) {
+    public void applyRoundHpTest(Pair pl, String gameId, String name, ClientData target, String ability) {
 
         pl.left.out.println(
                 GameCommand.ATTACK.toString() + ">" +
                 gameId + ">" +
                 name + ">" +
                 target.name + ">" +
-                "10"
+                ability
         );
         pl.right.out.println(
                 GameCommand.ATTACK.toString() + ">" +
                 gameId + ">" +
                 name + ">" +
                 target.name + ">" +
-                "10"
+                ability
         );
     }
 }

@@ -1,20 +1,31 @@
 package server;
 
-import championAssets.*;
-import client.CardPanel;
+import championAssets.Champion;
 import java.io.*;
+import java.util.concurrent.*;
+
 public class ClientData {
+
     PrintWriter out;
     String name;
-    String choosenChampion;
+    String chosenChampionName;
+    Champion chosenChampion;
+    int wins;
+    String myGameId;
     
+    private BlockingQueue<String> commands = new LinkedBlockingQueue<>();
+
     public ClientData(String name, PrintWriter output) {
         this.name = name;
         this.out = output;
-        choosenChampion = null;
+        chosenChampionName = null;
+        chosenChampion = null;
+        wins = 0;
+        myGameId = null;
     }
-    public synchronized void sendToMe(String sender, String message) {
-        out.println(sender + ": "+ message);
+
+    public synchronized void sendToMe(String message) {
+        out.println(message);
     }
 
     public PrintWriter getOutput() {
@@ -25,12 +36,39 @@ public class ClientData {
         return name;
     }
 
-//    public Champion getChoosenChampion() {
-//        return choosenChampion;
-//    }
-//
-//    public void setChoosenChampion(Champion choosenChampion) {
-//        this.choosenChampion = choosenChampion;
-//    }
-    
+    public int getWins() {
+        return wins;
+    }
+
+    public Champion getChampion() {
+        return chosenChampion;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setChampion(Champion champion) {
+        this.chosenChampion = champion;
+    }
+
+    public void addWin() {
+        this.wins++;
+    }
+
+    public String getMyGameId() {
+        return myGameId;
+    }
+
+    public void setMyGameId(String myGameId) {
+        this.myGameId = myGameId;
+    }
+
+    public void addCommand(String command) {
+        commands.add(command);
+    }
+
+    public String takeCommand() throws InterruptedException {
+        return commands.take();
+    }
 }
