@@ -17,6 +17,14 @@ public class Ability {
         this.usesLeft = usesLeft;
     }
 
+    public Ability(Ability a){
+        this.name = a.name;
+        this.description = a.description;
+        this.value = a.value;
+        this.type = a.type;
+        this.usesLeft = a.usesLeft;
+    }
+    
     public static Ability fromString(String data) {
         String[] parts = data.split(",");
         return new Ability(parts[0], parts[1], Double.parseDouble(parts[2]), parts[3], Integer.parseInt(parts[4]));

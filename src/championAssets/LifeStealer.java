@@ -13,7 +13,14 @@ public class LifeStealer extends Champion {
         this.lifestealMoveNumber = lifestealMoveNumber;
         this.specialSpellType = SpellType.OFF;
     }
-
+    public LifeStealer(LifeStealer l) {
+        super(l.name, l.healthPoints, l.attackDamage, l.magicDamage, l.physicalResist, l.magicResist, l.distancePoint, 
+                copyAbilities(l.abilities));
+        this.lifesteal = l.lifesteal;
+        this.lifestealValue = l.lifestealValue;
+        this.lifestealMoveNumber = l.lifestealMoveNumber;
+        this.specialSpellType = SpellType.OFF;
+    }
     public LifeStealer() {
         this.lifesteal = false;
         this.lifestealValue = 0;

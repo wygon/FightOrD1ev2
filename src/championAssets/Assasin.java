@@ -7,10 +7,26 @@ public class Assasin extends Champion{
         this.specialSpellType = SpellType.CRIT;
     }
 
+    public Assasin(Assasin a){
+        super(a.name, a.healthPoints, a.attackDamage, a.magicDamage, a.physicalResist, a.magicResist, a.distancePoint, 
+                copyAbilities(a.abilities));
+        this.specialSpellType = a.specialSpellType;
+    }
+    
     public Assasin() {
         this.specialSpellType = SpellType.CRIT;
     }
-
+    
+//    protected static Ability[] copyAbilities(Ability[] og) {
+//        if(og == null) return null;    
+//        
+//        Ability[] cp = new Ability[og.length];
+//        for(int i = 0; i < og.length; i++){
+//            cp[i] = new Ability(og[i]);
+//        }
+//        return cp;
+//    }
+    
     @Override
     public String toString() {
         return super.toString() + "\n I AM ABLE TO CRIT! ";

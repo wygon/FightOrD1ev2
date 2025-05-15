@@ -73,7 +73,15 @@ public abstract class Champion {
         a += "\n Magic Resist: " + magicResist;
         return a;
     }
+    protected static Ability[] copyAbilities(Ability[] og) {
+            if(og == null) return null;    
 
+            Ability[] cp = new Ability[og.length];
+            for(int i = 0; i < og.length; i++){
+                cp[i] = new Ability(og[i]);
+            }
+            return cp;
+        }
 
     public String getName() {
         return name;

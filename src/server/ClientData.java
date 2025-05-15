@@ -1,6 +1,6 @@
 package server;
 
-import championAssets.Champion;
+import championAssets.*;
 import java.io.*;
 import java.util.concurrent.*;
 
@@ -11,7 +11,7 @@ public class ClientData {
     String chosenChampionName;
     Champion chosenChampion;
     int wins;
-    String myGameId;
+    String gameId;
     
     private BlockingQueue<String> commands = new LinkedBlockingQueue<>();
 
@@ -21,7 +21,7 @@ public class ClientData {
         chosenChampionName = null;
         chosenChampion = null;
         wins = 0;
-        myGameId = null;
+        gameId = null;
     }
 
     public synchronized void sendToMe(String message) {
@@ -57,11 +57,11 @@ public class ClientData {
     }
 
     public String getMyGameId() {
-        return myGameId;
+        return gameId;
     }
 
     public void setMyGameId(String myGameId) {
-        this.myGameId = myGameId;
+        this.gameId = myGameId;
     }
 
     public void addCommand(String command) {
@@ -70,5 +70,9 @@ public class ClientData {
 
     public String takeCommand() throws InterruptedException {
         return commands.take();
+    }
+
+    public String getGameId() {
+        return gameId;
     }
 }

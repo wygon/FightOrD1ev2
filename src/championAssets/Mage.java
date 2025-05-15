@@ -6,7 +6,11 @@ public class Mage extends Champion {
         super(name, healthPoints, attackDamage, magicDamage, physicalResist, magicResist, distancePoint, abilities);
         this.specialSpellType = SpellType.LUCK;
     }
-
+    public Mage(Mage m) {
+        super(m.name, m.healthPoints, m.attackDamage, m.magicDamage, m.physicalResist, m.magicResist, m.distancePoint, 
+                copyAbilities(m.abilities));
+        this.specialSpellType = SpellType.LUCK;
+    }
     public Mage() {
         this.specialSpellType = SpellType.LUCK;
     }

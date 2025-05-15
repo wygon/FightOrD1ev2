@@ -11,6 +11,13 @@ public class Tank extends Champion {
         this.thornsMove = thornsMove;
         this.specialSpellType = SpellType.OFF;
     }
+    public Tank(Tank t) {
+        super(t.name, t.healthPoints, t.attackDamage, t.magicDamage, t.physicalResist, t.magicResist, t.distancePoint, 
+                copyAbilities(t.abilities));
+        this.thornsValue = t.thornsValue;
+        this.thornsMove = t.thornsMove;
+        this.specialSpellType = SpellType.OFF;
+    }
 
     public Tank() {
         this.thornsValue = 0;

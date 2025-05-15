@@ -2,6 +2,14 @@ package championAssets;
 
 public class Fighter extends Champion {
 
+    public Fighter(Fighter f) {
+        super(f.name, f.healthPoints, f.attackDamage, f.magicDamage, f.physicalResist, f.magicResist, f.distancePoint, 
+                copyAbilities(f.abilities));
+        this.specialSpellType = SpellType.OFF;
+    }
+    public Fighter(){
+        
+    }
     @Override
     public String toString() {
         return super.toString() + "\n Fighter";

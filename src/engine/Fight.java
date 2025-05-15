@@ -5,8 +5,6 @@ import championAssets.*;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import server.ClientData;
 import server.GameCommand;
 import textManagement.Loggers;
@@ -49,7 +47,7 @@ public class Fight implements Runnable {
         fightLoop();
         end();
     }
-
+    
 //    @Override
     public void end() {
         st.displayBattleStatistics();
@@ -76,7 +74,7 @@ public class Fight implements Runnable {
     }
 
     private void sendActualInformation(String info) {
-        if(!info.trim().equals("")) sendLogMessage(info);
+        if(!info.trim().equals("")) sendLogMessage(tm.getCurrentPlayer().getName(), info);
         tm.getCurrentPlayer().sendToMe(
                 GameCommand.APPLY_STATE + ">"
                 + gameId + ">"
@@ -94,13 +92,15 @@ public class Fight implements Runnable {
                 + tm.getCurrentChampion().getHP()
         );
     }
-    protected void sendLogMessage(String mess){
+    protected void sendLogMessage(String name, String mess){
         tm.getCurrentPlayer().sendToMe(
                 GameCommand.APPLY_LOGS + ">" +
+                        name + ">" +
                         mess
         );
         tm.getNextPlayer().sendToMe(
                 GameCommand.APPLY_LOGS + ">" +
+                        name + ">" +
                         mess
         );
     }

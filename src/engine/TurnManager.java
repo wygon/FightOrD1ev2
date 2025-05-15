@@ -16,16 +16,10 @@ public class TurnManager {
     private int totalMovesCount;
     private Random rand;
 
-//    public TurnManager(Player player1, Player player2) {
-//        this.rand = new Random();
-//        this.cp = player1;
-//        this.np = player2;
-//        this.tourPoint = 0;
-//        this.totalMovesCount = 0;
-//    }
     public TurnManager(Fight f, ClientData player1, ClientData player2) {
         this.cp = player1;
         this.np = player2;
+//        this.cp.setChampion();
         this.f = f;
         this.tourPoint = 0;
         this.totalMovesCount = 0;
@@ -176,7 +170,7 @@ public class TurnManager {
             Loggers.logMessage("=================================================", false, true);
             Loggers.logMessage(mess, true, true);
             ability.addUsesLeft(-1);
-            f.sendLogMessage(mess);
+            f.sendLogMessage(getCurrentPlayer().getName(), mess);
         }
     }
 
@@ -193,7 +187,7 @@ public class TurnManager {
                 getCurrentChampion().addHP(getCurrentChampion().getPoisonDmg());
                 mess += "[PASSIVE][" + getCurrentChampion().getName() + "] poisoned damage " + getCurrentChampion().getPoisonDmg();
             }
-            f.sendLogMessage(mess);
+            f.sendLogMessage(getCurrentPlayer().getName(), mess);
         }
         //Lifesteal management
         if (getNextChampion().getSpecialSpellType() == SpellType.LIFESTEAL) {
@@ -208,7 +202,7 @@ public class TurnManager {
                 getNextChampion().addHP((getCurrentChampion().getLastRoundHP() - getCurrentChampion().getHP()) * (getNextChampion().getSpecialSpellValue()) * 0.02);
                 mess += "[PASSIVE][" + getNextChampion().getName() + "]Healed for " + String.format("%.2f", (getCurrentChampion().getLastRoundHP() - getCurrentChampion().getHP()) * (getNextChampion().getSpecialSpellValue()) * 0.02);
             }
-            f.sendLogMessage(mess);
+            f.sendLogMessage(getCurrentPlayer().getName(), mess);
         }
         //Thorns management
         if (getCurrentChampion().getSpecialSpellType() == SpellType.THORNS) {
@@ -223,7 +217,7 @@ public class TurnManager {
                 getNextChampion().addHP(-(getCurrentChampion().getLastRoundHP() - getCurrentChampion().getHP()) * (getCurrentChampion().getSpecialSpellValue() * 0.015));
                 mess += "[PASSIVE]Thorns hit [" + getNextChampion().getName() + "] for " + String.format("%.2f", (getCurrentChampion().getLastRoundHP() - getCurrentChampion().getHP()) * (getCurrentChampion().getSpecialSpellValue() * 0.015));
             }
-            f.sendLogMessage(mess);
+            f.sendLogMessage(getCurrentPlayer().getName(), mess);
         }
         if (!mess.equals("")) {
             Loggers.logMessage(mess, true, true);

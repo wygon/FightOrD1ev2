@@ -1109,3 +1109,923 @@ GAME_APPLY_LOGS>[18][0/3] Nerag is losing tour caused by range difference.gracz4
 [26][2/3][Poisoner]Normal attack
 [27][3/3][Poisoner]Normal attack
 [PASSIVE][Poisoner] poison ended
+=================================================
+[Dr.Upo] vs [Lee song]
+[1][1/3][Dr.Upo]Normal attack
+[2][2/3][Dr.Upo]Normal attack
+[3][3/3][Dr.Upo]Normal attack
+[4][1/3][Lee song]Normal attack
+[5][2/3][Lee song]Normal attack
+[6][3/3][Lee song]Normal attack
+[7][1/3][Dr.Upo]Missed move.
+[8][2/3][Dr.Upo]Missed move.
+[9][3/3][Dr.Upo]Normal attack
+[10][1/3][Lee song]Attack damage boosted: 75.0
+[11][2/3][Lee song]Attack damage boosted: 85.0
+[12][3/3][Lee song]Attack damage boosted: 95.0
+[13][1/3][Dr.Upo]Lifesteal turned ON!
+[14][2/3][Dr.Upo]Normal attack
+[15][3/3][Dr.Upo]Normal attack
+[PASSIVE][Dr.Upo]Healed for 51,79
+[16][1/3][Lee song]Normal attack
+[17][2/3][Lee song]Normal attack
+[18][3/3][Lee song]Normal attack
+[19][1/3][Dr.Upo]Normal attack
+[20][2/3][Dr.Upo]Normal attack
+[21][3/3][Dr.Upo]Normal attack
+[PASSIVE][Dr.Upo]Healed for 77,68
+[22][1/3][Lee song]Normal attack
+[23][2/3][Lee song]Normal attack
+[24][3/3][Lee song]Normal attack
+[25][1/3][Dr.Upo]Normal attack
+[26][2/3][Dr.Upo]Normal attack
+[27][3/3][Dr.Upo]Normal attack
+[PASSIVE][Dr.Upo]Lifesteal ended
+[28][1/3][Lee song]Normal attack
+[29][2/3][Lee song]Normal attack
+[30][3/3][Lee song]Normal attack
+[31][1/3][Dr.Upo]Normal attack
+[32][2/3][Dr.Upo]Normal attack
+[33][3/3][Dr.Upo]Normal attack
+[34][1/3][Lee song]Normal attack
+[35][2/3][Lee song]Normal attack
+[36][3/3][Lee song]Normal attack
+[37][1/3][Dr.Upo]Lifesteal turned ON!
+[38][2/3][Dr.Upo]Normal attack
+[39][3/3][Dr.Upo]Normal attack
+[PASSIVE][Dr.Upo]Healed for 51,79
+[40][1/3][Lee song]Healed: 134,40
+[41][2/3][Lee song]Healed: 134,40
+[42][3/3][Lee song]Healed: 134,40
+[43][1/3][Dr.Upo]Normal attack
+[44][2/3][Dr.Upo]Normal attack
+[45][3/3][Dr.Upo]Normal attack
+[PASSIVE][Dr.Upo]Healed for 77,68
+[46][1/3][Lee song]Normal attack
+[47][2/3][Lee song]Normal attack
+[48][3/3][Lee song]Normal attack
+[49][1/3][Dr.Upo]Normal attack
+[50][2/3][Dr.Upo]Normal attack
+[51][3/3][Dr.Upo]Missed move.
+[PASSIVE][Dr.Upo]Lifesteal ended
+[52][1/3][Lee song]Normal attack
+[53][2/3][Lee song]Missed move.
+[54][3/3][Lee song]Normal attack
+[55][1/3][Dr.Upo]Lifesteal turned ON!
+[56][2/3][Dr.Upo]Normal attack
+[57][3/3][Dr.Upo]Normal attack
+[PASSIVE][Dr.Upo]Healed for 51,79
+[58][1/3][Lee song]Normal attack
+[59][2/3][Lee song]Normal attack
+[60][3/3][Lee song]Normal attack
+[Dr.Upo]Died... [Lee song]is a WINNER 
+=================================================
+[Huwaei] vs [Suirad]
+[1][1/3][Huwaei]Missed move.
+[2][2/3][Huwaei]Normal attack
+[3][3/3][Huwaei]Normal attack
+GAME_APPLY_LOGS>[3][0/3] Suirad is losing tour caused by range difference.ddd [Huwaei] ITS YOUR TURN!
+[4][1/3][Huwaei]Normal attack
+[5][2/3][Huwaei]Normal attack
+[6][3/3][Huwaei]Normal attack
+=================================================
+[Huwaei] vs [Lee song]
+GAME_APPLY_LOGS>[0][0/3] Lee song is losing tour caused by range difference.ddd [Huwaei] ITS YOUR TURN!
+[1][1/3][Huwaei]Normal attack
+[2][2/3][Huwaei]Normal attack
+[3][3/3][Huwaei]Missed move.
+[4][1/3][Lee song]Normal attack
+[5][2/3][Lee song]Normal attack
+[6][3/3][Lee song]Normal attack
+=================================================
+[Lee song] vs [Lee song]
+[1][1/3][Lee song]Normal attack
+[2][2/3][Lee song]Normal attack
+[3][3/3][Lee song]Normal attack
+[4][1/3][Lee song]Normal attack
+[5][2/3][Lee song]Normal attack
+[6][3/3][Lee song]Normal attack
+[7][1/3][Lee song]Normal attack
+[8][2/3][Lee song]Normal attack
+[9][3/3][Lee song]Missed move.
+=================================================
+[Healer] vs [Lee song]
+GAME_APPLY_LOGS>[0][0/3] Lee song is losing tour caused by range difference.dsa [Healer] ITS YOUR TURN!
+[1][1/3][Healer]Normal attack
+[2][2/3][Healer]Missed move.
+[3][3/3][Healer]Normal attack
+[4][1/3][Lee song]Normal attack
+[5][2/3][Lee song]Normal attack
+[6][3/3][Lee song]Normal attack
+[7][1/3][Healer]Normal attack[LUCKY]
+[8][2/3][Healer]Normal attack
+[9][3/3][Healer]Normal attack
+[10][1/3][Lee song]Normal attack
+[11][2/3][Lee song]Normal attack
+[12][3/3][Lee song]Normal attack
+=================================================
+[Healer] vs [Lee song]
+[1][1/3][Healer]Normal attack[LUCKY]
+[2][2/3][Healer]Normal attack
+[3][3/3][Healer]Normal attack[LUCKY]
+GAME_APPLY_LOGS>[3][0/3] Lee song is losing tour caused by range difference.das [Healer] ITS YOUR TURN!
+[4][1/3][Healer]Normal attack[LUCKY]
+[5][2/3][Healer]Normal attack
+[6][3/3][Healer]Normal attack
+=================================================
+[Dr.Upo] vs [Lee song]
+[1][1/3][Dr.Upo]Normal attack
+[2][2/3][Dr.Upo]Normal attack
+[3][3/3][Dr.Upo]Normal attack
+[4][1/3][Lee song]Normal attack
+[5][2/3][Lee song]Normal attack
+[6][3/3][Lee song]Missed move.
+[7][1/3][Dr.Upo]Missed move.
+[8][2/3][Dr.Upo]Normal attack
+[9][3/3][Dr.Upo]Normal attack
+[10][1/3][Lee song]Normal attack
+[11][2/3][Lee song]Normal attack
+[12][3/3][Lee song]Normal attack
+=================================================
+[Dr.Upo] vs [Lee song]
+[1][1/3][Lee song]Normal attack
+[2][2/3][Lee song]Normal attack
+[3][3/3][Lee song]Normal attack
+=================================================
+[Butcher] vs [Lee song]
+[1][1/3][Butcher]Normal attack
+[2][2/3][Butcher]Normal attack
+[3][3/3][Butcher]Normal attack
+[4][1/3][Lee song]Normal attack
+[5][2/3][Lee song]Normal attack
+[6][3/3][Lee song]Normal attack
+[7][1/3][Butcher]Normal attack
+[8][2/3][Butcher]Normal attack
+[9][3/3][Butcher]Normal attack
+[10][1/3][Lee song]Normal attack
+[11][2/3][Lee song]Normal attack
+[12][3/3][Lee song]Normal attack
+=================================================
+[Healer] vs [Lee song]
+GAME_APPLY_LOGS>[0][0/3] Lee song is losing tour caused by range difference.qwe [Healer] ITS YOUR TURN!
+[1][1/3][Healer]Normal attack
+[2][2/3][Healer]Missed move.
+[3][3/3][Healer]Normal attack
+[4][1/3][Lee song]Normal attack
+[5][2/3][Lee song]Normal attack
+[6][3/3][Lee song]Normal attack
+[7][1/3][Healer]Normal attack
+[8][2/3][Healer]Normal attack
+[9][3/3][Healer]Normal attack
+[10][1/3][Lee song]Tour point added.
+[11][2/3][Lee song]Tour point added.
+[12][3/3][Lee song]Normal attack
+GAME_APPLY_LOGS>[12][0/3] Healer is losing tour caused by range difference.123 [Lee song] ITS YOUR TURN!
+[13][1/3][Lee song]Missed move.
+[14][2/3][Lee song]Normal attack
+[15][3/3][Lee song]Normal attack
+GAME_APPLY_LOGS>[15][0/3] Healer is losing tour caused by range difference.123 [Lee song] ITS YOUR TURN!
+[16][1/3][Lee song]Normal attack
+[17][2/3][Lee song]Normal attack
+[18][3/3][Lee song]Normal attack
+[19][1/3][Healer]Healed: 82,60[LUCKY]
+[20][2/3][Healer]Missed move.
+[21][3/3][Healer]Healed: 82,60[LUCKY]
+[22][1/3][Lee song]Normal attack
+[23][2/3][Lee song]Normal attack
+[24][3/3][Lee song]Normal attack
+[25][1/3][Healer]Healed: 82,60[LUCKY]
+[26][2/3][Healer]Healed: 82,60
+[27][3/3][Healer]Healed: 82,60
+[28][1/3][Lee song]Normal attack
+[29][2/3][Lee song]Normal attack
+[30][3/3][Lee song]Missed move.
+[31][1/3][Healer]Healed: 82,60
+[32][2/3][Healer]Healed: 82,60[LUCKY]
+[33][3/3][Healer]Tour point added.
+GAME_APPLY_LOGS>[33][0/3] Lee song is losing tour caused by range difference.qwe [Healer] ITS YOUR TURN!
+[34][1/3][Healer]Magic damage dealt: 77,35
+[35][2/3][Healer]Magic damage dealt: 77,35
+[36][3/3][Healer]Tour point added.
+GAME_APPLY_LOGS>[36][0/3] Lee song is losing tour caused by range difference.qwe [Healer] ITS YOUR TURN!
+[37][1/3][Healer]Magic damage dealt: 77,35
+[38][2/3][Healer]Magic damage dealt: 77,35
+[39][3/3][Healer]Tour point added.
+GAME_APPLY_LOGS>[39][0/3] Lee song is losing tour caused by range difference.qwe [Healer] ITS YOUR TURN!
+[40][1/3][Healer]Missed move.
+[41][2/3][Healer]Magic damage dealt: 77,35
+[42][3/3][Healer]Missed move.
+[43][1/3][Lee song]Normal attack
+[44][2/3][Lee song]Normal attack
+[45][3/3][Lee song]Normal attack
+=================================================
+[Zoe] vs [Lee song]
+[1][1/3][Lee song]Normal attack
+[2][2/3][Lee song]Normal attack
+[3][3/3][Lee song]Attack damage boosted: 75.0
+[4][1/3][Zoe]Normal attack
+[5][2/3][Zoe]Normal attack
+[6][3/3][Zoe]Normal attack
+[7][1/3][Lee song]Attack damage boosted: 85.0
+[8][2/3][Lee song]Attack damage boosted: 95.0
+=================================================
+[Dez] vs [Lee song]
+[1][1/3][Lee song]Tour point added.
+[2][2/3][Lee song]Tour point added.
+[3][3/3][Lee song]Normal attack
+GAME_APPLY_LOGS>[3][0/3] Dez is losing tour caused by range difference.111 [Lee song] ITS YOUR TURN!
+=================================================
+[Butcher] vs [Lee song]
+[1][1/3][Lee song]Tour point added.
+[2][2/3][Lee song]Tour point added.
+[3][3/3][Lee song]Attack damage boosted: 75.0
+GAME_APPLY_LOGS>[3][0/3] Butcher is losing tour caused by range difference.11 [Lee song] ITS YOUR TURN!
+[4][1/3][Lee song]Normal attack
+[5][2/3][Lee song]Normal attack
+[6][3/3][Lee song]Normal attack
+GAME_APPLY_LOGS>[6][0/3] Butcher is losing tour caused by range difference.11 [Lee song] ITS YOUR TURN!
+[7][1/3][Lee song]Normal attack
+[8][2/3][Lee song]Normal attack
+[9][3/3][Lee song]Normal attack
+[10][1/3][Butcher]Normal attack
+[11][2/3][Butcher]Normal attack
+[12][3/3][Butcher]Normal attack
+=================================================
+[The rock] vs [Lee song]
+[1][1/3][Lee song]Tour point added.
+[2][2/3][Lee song]Tour point added.
+[3][3/3][Lee song]Missed move.
+GAME_APPLY_LOGS>[3][0/3] The rock is losing tour caused by range difference.123 [Lee song] ITS YOUR TURN!
+[4][1/3][Lee song]Normal attack
+[5][2/3][Lee song]Normal attack
+[6][3/3][Lee song]Normal attack
+GAME_APPLY_LOGS>[6][0/3] The rock is losing tour caused by range difference.123 [Lee song] ITS YOUR TURN!
+[7][1/3][Lee song]Normal attack
+[8][2/3][Lee song]Normal attack
+[9][3/3][Lee song]Normal attack
+[10][1/3][The rock]Missed move.
+[11][2/3][The rock]Normal attack
+[12][3/3][The rock]Normal attack
+=================================================
+[Dez] vs [Lee song]
+[1][1/3][Dez]Normal attack
+[2][2/3][Dez]Normal attack
+[3][3/3][Dez]Normal attack
+[4][1/3][Lee song]Tour point added.
+[5][2/3][Lee song]Tour point added.
+[6][3/3][Lee song]Normal attack
+GAME_APPLY_LOGS>[6][0/3] Dez is losing tour caused by range difference.222 [Lee song] ITS YOUR TURN!
+[7][1/3][Lee song]Normal attack
+[8][2/3][Lee song]Normal attack
+[9][3/3][Lee song]Normal attack
+GAME_APPLY_LOGS>[9][0/3] Dez is losing tour caused by range difference.222 [Lee song] ITS YOUR TURN!
+[10][1/3][Lee song]Normal attack
+[11][2/3][Lee song]Normal attack
+[12][3/3][Lee song]Normal attack
+[13][1/3][Dez]Missed move.
+[14][2/3][Dez]Normal attack
+[15][3/3][Dez]Normal attack
+=================================================
+[Dr.Upo] vs [Lee song]
+[1][1/3][Lee song]Attack damage boosted: 75.0
+[2][2/3][Lee song]Attack damage boosted: 85.0
+[3][3/3][Lee song]Attack damage boosted: 95.0
+[4][1/3][Dr.Upo]Normal attack
+[5][2/3][Dr.Upo]Missed move.
+[6][3/3][Dr.Upo]Normal attack
+=================================================
+[Huwaei] vs [Lee song]
+[1][1/3][Huwaei]Magic damage boosted: 100.0
+[2][2/3][Huwaei]Magic damage dealt: 89,25
+[3][3/3][Huwaei]Normal attack
+GAME_APPLY_LOGS>[3][0/3] Lee song is losing tour caused by range difference.dddddd [Huwaei] ITS YOUR TURN!
+[4][1/3][Huwaei]Normal attack
+[5][2/3][Huwaei]Missed move.
+[6][3/3][Huwaei]Normal attack
+[7][1/3][Lee song]Attack damage boosted: 75.0
+[8][2/3][Lee song]Missed move.
+[9][3/3][Lee song]Attack damage boosted: 85.0
+=================================================
+[Dez] vs [Lee song]
+[1][1/3][Dez]Missed move.
+[2][2/3][Dez]DOUBLE ATTACK!
+[3][3/3][Dez]Normal attack
+[4][1/3][Lee song]Normal attack
+[5][2/3][Lee song]Normal attack
+[6][3/3][Lee song]Normal attack
+[7][1/3][Dez]Normal attack
+[8][2/3][Dez]Normal attack
+[9][3/3][Dez]Normal attack
+[10][1/3][Lee song]Healed: 134,40
+[11][2/3][Lee song]Healed: 134,40
+[12][3/3][Lee song]Missed move.
+[13][1/3][Dez]Normal attack
+[14][2/3][Dez]Normal attack
+[15][3/3][Dez]Normal attack
+[16][1/3][Lee song]Normal attack
+[17][2/3][Lee song]Normal attack
+[18][3/3][Lee song]Normal attack
+[19][1/3][Dez]Normal attack
+[20][2/3][Dez]Normal attack
+[21][3/3][Dez]Normal attack
+=================================================
+[Dez] vs [Lee song]
+=================================================
+[Dez] vs [Lee song]
+[1][1/3][Lee song]Normal attack
+[2][2/3][Lee song]Normal attack
+[3][3/3][Lee song]Normal attack
+[4][1/3][Dez]Normal attack
+[5][2/3][Dez]Missed move.
+[6][3/3][Dez]Normal attack
+[7][1/3][Lee song]Normal attack
+[8][2/3][Lee song]Normal attack
+[9][3/3][Lee song]Normal attack
+[10][1/3][Dez]DOUBLE ATTACK!
+[11][2/3][Dez]DOUBLE ATTACK!
+[12][3/3][Dez]Normal attack
+[13][1/3][Lee song]Missed move.
+[14][2/3][Lee song]Normal attack
+[15][3/3][Lee song]Normal attack
+=================================================
+[Zoe] vs [Dez]
+=================================================
+[Butcher] vs [Lee song]
+[1][1/3][Lee song]Normal attack
+[2][2/3][Lee song]Normal attack
+[3][3/3][Lee song]Missed move.
+[4][1/3][Butcher]Normal attack
+[5][2/3][Butcher]Normal attack
+[6][3/3][Butcher]Normal attack
+[7][1/3][Lee song]Normal attack
+[8][2/3][Lee song]Normal attack
+[9][3/3][Lee song]Normal attack
+[10][1/3][Butcher]Attack damage boosted: 63.0
+[11][2/3][Butcher]Attack damage boosted: 73.0
+[12][3/3][Butcher]Lifesteal turned ON!
+[PASSIVE][Butcher]Healed for 0,00
+[13][1/3][Lee song]Normal attack
+[14][2/3][Lee song]Normal attack
+[15][3/3][Lee song]Normal attack
+[ALMOST IMPOSSIBLE]TIE[Lee song] and [Butcher]DIED!
+=================================================
+[Huwaei] vs [Poisoner]
+[1][1/3][Huwaei]Normal attack
+[2][2/3][Huwaei]Normal attack
+[3][3/3][Huwaei]Normal attack
+GAME_APPLY_LOGS>[3][0/3] Poisoner is losing tour caused by range difference.11111111 [Huwaei] ITS YOUR TURN!
+[4][1/3][Huwaei]Normal attack
+[5][2/3][Huwaei]Normal attack
+[6][3/3][Huwaei]Normal attack
+[16][1/3][Poisoner]Normal attack
+[7][1/3][Poisoner]Normal attack
+[17][2/3][Poisoner]Normal attack
+[8][2/3][Poisoner]Normal attack
+[18][3/3][Poisoner]Normal attack
+[9][3/3][Poisoner]Normal attack
+[10][1/3][Huwaei]Normal attack
+[11][2/3][Huwaei]Normal attack
+[12][3/3][Huwaei]Normal attack
+[13][1/3][Poisoner]Missed move.
+[14][2/3][Poisoner]Normal attack
+[15][3/3][Poisoner]Normal attack
+[16][1/3][Huwaei]Normal attack
+[17][2/3][Huwaei]Normal attack
+[18][3/3][Huwaei]Normal attack
+[19][1/3][Poisoner]Normal attack
+[20][2/3][Poisoner]Normal attack
+[21][3/3][Poisoner]Normal attack
+[22][1/3][Huwaei]Normal attack
+[23][2/3][Huwaei]Missed move.
+[24][3/3][Huwaei]Normal attack
+=================================================
+[Luxia] vs [Kha six]
+GAME_APPLY_LOGS>[0][0/3] Kha six is losing tour caused by range difference.aaacxzcxz [Luxia] ITS YOUR TURN!
+[25][1/3][Poisoner]Normal attack
+[26][2/3][Poisoner]Normal attack
+[27][3/3][Poisoner]Normal attack
+[28][1/3][Huwaei]Missed move.
+[29][2/3][Huwaei]Normal attack
+[30][3/3][Huwaei]Normal attack
+[1][1/3][Luxia]Missed move.
+[2][2/3][Luxia]Normal attack
+[3][3/3][Luxia]Normal attack
+[4][1/3][Kha six]Normal attack
+[5][2/3][Kha six]Missed move.
+[31][1/3][Poisoner]Normal attack
+[32][2/3][Poisoner]Normal attack
+[33][3/3][Poisoner]Normal attack
+[34][1/3][Huwaei]Normal attack
+[35][2/3][Huwaei]Normal attack
+[6][3/3][Kha six]Normal attack
+[7][1/3][Luxia]Normal attack[LUCKY]
+[8][2/3][Luxia]Normal attack
+[9][3/3][Luxia]Normal attack
+[10][1/3][Kha six]Normal attack
+[11][2/3][Kha six]Normal attack
+[12][3/3][Kha six]Normal attack
+[13][1/3][Luxia]Normal attack
+[14][2/3][Luxia]Normal attack
+[15][3/3][Luxia]Normal attack
+[16][1/3][Kha six]Normal attack
+[17][2/3][Kha six]Normal attack
+[18][3/3][Kha six]Normal attack
+[19][1/3][Luxia]Normal attack
+[20][2/3][Luxia]Normal attack[LUCKY]
+[21][3/3][Luxia]Normal attack
+[22][1/3][Kha six]Normal attack
+[Luxia]Died... [Kha six]is a WINNER 
+[36][3/3][Huwaei]Normal attack
+[37][1/3][Poisoner]Missed move.
+[38][2/3][Poisoner]Normal attack
+[39][3/3][Poisoner]Normal attack
+[40][1/3][Huwaei]Missed move.
+[41][2/3][Huwaei]Normal attack
+[42][3/3][Huwaei]Normal attack
+[43][1/3][Poisoner]Normal attack
+[Huwaei]Died... [Poisoner]is a WINNER 
+=================================================
+[Suirad] vs [Lee song]
+[1][1/3][Lee song]Normal attack
+[2][2/3][Lee song]Normal attack
+[3][3/3][Lee song]Missed move.
+[4][1/3][Suirad]Missed move.
+[5][2/3][Suirad]Attack damage boosted: 65.0
+[6][3/3][Suirad]Normal attack
+[7][1/3][Lee song]Missed move.
+[8][2/3][Lee song]Normal attack
+[9][3/3][Lee song]Normal attack
+[10][1/3][Suirad]Normal attack
+[11][2/3][Suirad]Normal attack
+[12][3/3][Suirad]Normal attack
+[13][1/3][Lee song]Normal attack
+[14][2/3][Lee song]Normal attack
+[15][3/3][Lee song]Normal attack
+[16][1/3][Suirad]Normal attack
+[17][2/3][Suirad]Normal attack
+=================================================
+[Zoe] vs [Lee song]
+[1][1/3][Lee song]Attack damage boosted: 75.0
+[2][2/3][Lee song]Attack damage boosted: 85.0
+[3][3/3][Lee song]Attack damage boosted: 95.0
+[4][1/3][Zoe]Magic damage dealt: 160,65
+[5][2/3][Zoe]Magic damage dealt: 160,65[LUCKY]
+[6][3/3][Zoe]Magic damage dealt: 160,65
+[7][1/3][Lee song]Normal attack
+[8][2/3][Lee song]Normal attack
+[9][3/3][Lee song]Normal attack
+=================================================
+[Dez] vs [Lee song]
+[1][1/3][Dez]DOUBLE ATTACK!
+[2][2/3][Dez]DOUBLE ATTACK!
+=================================================
+[Zoe] vs [Lee song]
+[1][1/3][Zoe]Magic damage dealt: 160,65
+[2][2/3][Zoe]Magic damage dealt: 160,65[LUCKY]
+[3][3/3][Zoe]Magic damage dealt: 160,65
+[4][1/3][Lee song]Normal attack
+[5][2/3][Lee song]Normal attack
+[6][3/3][Lee song]Normal attack
+=================================================
+[Suirad] vs [Lee song]
+[1][1/3][Suirad]Attack damage boosted: 65.0
+[2][2/3][Suirad]Attack damage boosted: 75.0
+[3][3/3][Suirad]Normal attack
+[4][1/3][Lee song]Attack damage boosted: 75.0
+[5][2/3][Lee song]Attack damage boosted: 85.0
+[6][3/3][Lee song]Attack damage boosted: 95.0
+[7][1/3][Suirad]Normal attack
+[8][2/3][Suirad]Normal attack
+[9][3/3][Suirad]Normal attack
+[10][1/3][Lee song]Normal attack
+[11][2/3][Lee song]Missed move.
+[12][3/3][Lee song]Normal attack
+[13][1/3][Suirad]Normal attack
+[14][2/3][Suirad]Normal attack
+[15][3/3][Suirad]Normal attack
+[16][1/3][Lee song]Normal attack
+[17][2/3][Lee song]Normal attack
+[18][3/3][Lee song]Normal attack
+[19][1/3][Suirad]Normal attack
+=================================================
+[The rock] vs [Lee song]
+[1][1/3][Lee song]Attack damage boosted: 75.0
+[2][2/3][Lee song]Attack damage boosted: 85.0
+[3][3/3][Lee song]Attack damage boosted: 95.0
+[4][1/3][The rock]Missed move.
+[5][2/3][The rock]Physical resist boosted: 40.0
+[6][1/3][Lee song]Normal attack
+[7][1/3][Lee song]Normal attack
+[8][2/3][Lee song]Normal attack
+[9][1/3][The rock]Normal attack
+[10][2/3][The rock]Normal attack
+[11][3/3][The rock]Normal attack
+=================================================
+[Suirad] vs [Lee song]
+[1][1/3][Lee song]Normal attack
+[2][2/3][Lee song]Normal attack
+[3][3/3][Lee song]Normal attack
+[4][1/3][Suirad]Normal attack
+[5][2/3][Suirad]Normal attack
+[6][3/3][Suirad]Normal attack
+[7][1/3][Lee song]Attack damage boosted: 75.0
+[8][2/3][Lee song]Attack damage boosted: 85.0
+[9][3/3][Lee song]Attack damage boosted: 95.0
+[10][1/3][Suirad]Normal attack
+[11][2/3][Suirad]Normal attack
+[12][3/3][Suirad]Normal attack
+[13][1/3][Lee song]Normal attack
+[14][2/3][Lee song]Normal attack
+[15][3/3][Lee song]Normal attack
+[16][1/3][Suirad]Normal attack
+[17][2/3][Suirad]Normal attack
+[18][3/3][Suirad]Normal attack
+[19][1/3][Lee song]Normal attack
+[20][2/3][Lee song]Missed move.
+[21][3/3][Lee song]Normal attack
+[22][1/3][Suirad]Normal attack
+[23][2/3][Suirad]Normal attack
+[24][3/3][Suirad]Normal attack
+[25][1/3][Lee song]Normal attack
+[26][2/3][Lee song]Missed move.
+[27][3/3][Lee song]Normal attack
+[28][1/3][Suirad]Normal attack
+[29][2/3][Suirad]Normal attack
+[30][3/3][Suirad]Normal attack
+[31][1/3][Lee song]Normal attack
+[32][2/3][Lee song]Normal attack
+[33][3/3][Lee song]Normal attack
+[34][1/3][Suirad]Normal attack
+[35][2/3][Suirad]Normal attack
+[36][3/3][Suirad]Normal attack
+[37][1/3][Lee song]Normal attack
+[38][2/3][Lee song]Normal attack
+[Suirad]Died... [Lee song]is a WINNER 
+=================================================
+[Suirad] vs [Lee song]
+[1][1/3][Suirad]Normal attack
+[Lee song]Died... [Suirad]is a WINNER 
+=================================================
+[Lee song] vs [Lee song]
+[Lee song]Died... [Lee song]is a WINNER 
+=================================================
+[Poisoner] vs [Poisoner]
+[1][1/3][Poisoner]Normal attack
+[2][2/3][Poisoner]Normal attack
+[3][3/3][Poisoner]Normal attack
+[4][1/3][Poisoner]Normal attack
+[5][2/3][Poisoner]Normal attack
+[6][3/3][Poisoner]Normal attack
+[7][1/3][Poisoner]Poison applied to Poisoner
+[8][2/3][Poisoner]Normal attack
+[9][3/3][Poisoner]Normal attack
+[PASSIVE][Poisoner] poisoned damage -43.75
+[10][1/3][Poisoner]Normal attack
+[11][2/3][Poisoner]Normal attack
+[12][3/3][Poisoner]Normal attack
+[13][1/3][Poisoner]Normal attack
+[14][2/3][Poisoner]Normal attack
+[15][3/3][Poisoner]Normal attack
+[PASSIVE][Poisoner] poisoned damage -43.75
+[16][1/3][Poisoner]Normal attack
+[17][2/3][Poisoner]Normal attack
+[18][3/3][Poisoner]Normal attack
+[19][1/3][Poisoner]Normal attack
+[20][2/3][Poisoner]Normal attack
+[21][3/3][Poisoner]Normal attack
+[PASSIVE][Poisoner] poison ended
+[22][1/3][Poisoner]Normal attack
+[23][2/3][Poisoner]Missed move.
+[24][3/3][Poisoner]Normal attack
+[25][1/3][Poisoner]Normal attack
+[26][2/3][Poisoner]Normal attack
+[27][3/3][Poisoner]Missed move.
+[28][1/3][Poisoner]Missed move.
+[29][2/3][Poisoner]Normal attack
+[30][3/3][Poisoner]Normal attack
+[31][1/3][Poisoner]Normal attack
+[32][2/3][Poisoner]Normal attack
+[33][3/3][Poisoner]Normal attack
+[34][1/3][Poisoner]Normal attack
+[35][2/3][Poisoner]Normal attack
+[36][3/3][Poisoner]Normal attack
+[37][1/3][Poisoner]Normal attack
+[38][2/3][Poisoner]Normal attack
+[39][3/3][Poisoner]Normal attack
+[40][1/3][Poisoner]Normal attack
+[41][2/3][Poisoner]Normal attack
+[42][3/3][Poisoner]Normal attack
+[43][1/3][Poisoner]Normal attack
+[44][2/3][Poisoner]Normal attack
+[45][3/3][Poisoner]Missed move.
+[46][1/3][Poisoner]Normal attack
+[47][2/3][Poisoner]Normal attack
+[48][3/3][Poisoner]Normal attack
+[49][1/3][Poisoner]Normal attack
+[50][2/3][Poisoner]Normal attack
+[51][3/3][Poisoner]Normal attack
+[52][1/3][Poisoner]Normal attack
+[53][2/3][Poisoner]Normal attack
+[54][3/3][Poisoner]Normal attack
+[55][1/3][Poisoner]Normal attack
+[56][2/3][Poisoner]Normal attack
+[Poisoner]Died... [Poisoner]is a WINNER 
+=================================================
+[e-rammus] vs [Poisoner]
+[Poisoner]Died... [e-rammus]is a WINNER 
+=================================================
+[Poisoner] vs [Suirad]
+[Poisoner]Died... [Suirad]is a WINNER 
+=================================================
+[Suirad] vs [Dez]
+[1][1/3][Suirad]Normal attack
+[2][2/3][Suirad]Normal attack
+[3][3/3][Suirad]Normal attack
+[4][1/3][Dez]Normal attack
+[5][2/3][Dez]Missed move.
+[6][3/3][Dez]Normal attack
+[7][1/3][Dez]Normal attack
+[8][2/3][Dez]Normal attack
+[9][3/3][Dez]Normal attack
+[10][1/3][Dez]Normal attack
+[11][2/3][Dez]Normal attack
+[12][3/3][Dez]Normal attack
+[13][1/3][Dez]Normal attack
+[14][2/3][Dez]Normal attack
+[15][3/3][Dez]Missed move.
+[16][1/3][Dez]Normal attack
+[17][2/3][Dez]Normal attack
+[18][3/3][Dez]Normal attack
+[19][1/3][Dez]Normal attack
+[Suirad]Died... [Dez]is a WINNER 
+=================================================
+[Suirad] vs [Dez]
+[1][1/3][Dez]Normal attack
+[2][2/3][Dez]Normal attack
+[3][3/3][Dez]Normal attack
+[4][1/3][Dez]Normal attack
+[5][2/3][Dez]Normal attack
+[6][3/3][Dez]Normal attack
+[7][1/3][Dez]Normal attack
+[8][2/3][Dez]Normal attack
+[9][3/3][Dez]Normal attack
+[10][1/3][Dez]DOUBLE ATTACK!
+[11][2/3][Dez]DOUBLE ATTACK!
+[12][3/3][Dez]Physical damage dealt: 152,00
+[Suirad]Died... [Dez]is a WINNER 
+=================================================
+[Dez] vs [Suirad]
+[1][1/3][Suirad]Normal attack
+[2][2/3][Suirad]Normal attack
+[3][3/3][Suirad]Normal attack
+[4][1/3][Suirad]Attack damage boosted: 65.0
+[5][2/3][Suirad]Attack damage boosted: 75.0
+[6][3/3][Suirad]Normal attack
+[7][1/3][Dez]Missed move.
+[8][2/3][Dez]Normal attack
+[9][3/3][Dez]Normal attack
+[10][1/3][Suirad]Normal attack
+[11][2/3][Suirad]Normal attack
+[12][3/3][Suirad]Missed move.
+[13][1/3][Suirad]Normal attack
+[14][2/3][Suirad]Missed move.
+[15][3/3][Suirad]Missed move.
+[16][1/3][Suirad]Normal attack
+[17][2/3][Suirad]Normal attack
+[18][3/3][Suirad]Normal attack
+[19][1/3][Suirad]Normal attack
+[Dez]Died... [Suirad]is a WINNER 
+=================================================
+[Dez] vs [Lee song]
+[Lee song]Died... [Dez]is a WINNER 
+=================================================
+[Suirad] vs [Dez]
+=================================================
+[Suirad] vs [Lee song]
+=================================================
+[Poisoner] vs [Nerag]
+[1][1/3][Suirad]Normal attack
+[2][2/3][Suirad]Missed move.
+[3][3/3][Suirad]Normal attack
+[1][1/3][Poisoner]Missed move.
+[2][2/3][Poisoner]Normal attack
+[3][3/3][Poisoner]Missed move.
+[4][1/3][Nerag]Attack damage boosted: 65.0
+[5][2/3][Nerag]Attack damage boosted: 75.0
+[6][3/3][Nerag]DOUBLE ATTACK!
+[7][1/3][Poisoner]Poison applied to Nerag
+[8][2/3][Poisoner]Normal attack
+[9][3/3][Poisoner]Missed move.
+[PASSIVE][Nerag] poisoned damage -53.125
+[10][1/3][Nerag]Normal attack
+[11][2/3][Nerag]Normal attack
+[12][3/3][Nerag]DOUBLE ATTACK!
+[13][1/3][Poisoner]Normal attack
+[14][2/3][Poisoner]Normal attack
+[15][3/3][Poisoner]Poison applied to Nerag
+[PASSIVE][Nerag] poisoned damage -106.25
+[16][1/3][Nerag]Normal attack
+[17][2/3][Nerag]Normal attack
+[18][3/3][Nerag]Normal attack
+[19][1/3][Poisoner]Normal attack
+[20][2/3][Poisoner]Normal attack
+[21][3/3][Poisoner]Normal attack
+[PASSIVE][Nerag] poisoned damage -106.25
+[22][1/3][Nerag]Normal attack
+[23][2/3][Nerag]Normal attack
+[24][3/3][Nerag]Normal attack
+[25][1/3][Poisoner]Normal attack
+[26][2/3][Poisoner]Normal attack
+[27][3/3][Poisoner]Normal attack
+[PASSIVE][Poisoner] poison ended
+[28][1/3][Nerag]Normal attack
+[29][2/3][Nerag]Normal attack
+[30][3/3][Nerag]Normal attack
+[31][1/3][Poisoner]Normal attack
+[32][2/3][Poisoner]Normal attack
+[33][3/3][Poisoner]Normal attack
+[34][1/3][Nerag]Missed move.
+[35][2/3][Nerag]Missed move.
+[36][3/3][Nerag]Normal attack
+[4][1/3][Lee song]Missed move.
+[5][2/3][Lee song]Normal attack
+[6][3/3][Lee song]Normal attack
+[7][1/3][Suirad]Attack damage boosted: 65.0
+[8][2/3][Suirad]Attack damage boosted: 75.0
+[9][3/3][Suirad]Poison applied to Lee song
+[PASSIVE][Lee song] poisoned damage -42.5
+[10][1/3][Lee song]Tour point added.
+[11][2/3][Lee song]Healed: 134,40
+[12][3/3][Lee song]Attack damage boosted: 75.0
+GAME_APPLY_LOGS>[12][0/3] Suirad is losing tour caused by range difference.q1 [Lee song] ITS YOUR TURN!
+[PASSIVE][Lee song] poisoned damage -42.5
+[13][1/3][Lee song]Tour point added.
+[14][2/3][Lee song]Healed: 134,40
+[15][3/3][Lee song]Attack damage boosted: 85.0
+GAME_APPLY_LOGS>[15][0/3] Suirad is losing tour caused by range difference.q1 [Lee song] ITS YOUR TURN!
+[PASSIVE][Lee song] poisoned damage -42.5
+[16][1/3][Lee song]Missed move.
+[17][2/3][Lee song]Normal attack
+[18][3/3][Lee song]Normal attack
+[19][1/3][Suirad]Normal attack
+[20][2/3][Suirad]Normal attack
+[21][3/3][Suirad]Normal attack
+[PASSIVE][Suirad] poison ended
+[22][1/3][Lee song]Attack damage boosted: 95.0
+[23][2/3][Lee song]Normal attack
+[24][3/3][Lee song]Normal attack
+[25][1/3][Suirad]Normal attack
+[26][2/3][Suirad]Missed move.
+[27][3/3][Suirad]Normal attack
+[28][1/3][Lee song]Normal attack
+[29][2/3][Lee song]Normal attack
+[30][3/3][Lee song]Missed move.
+[31][1/3][Suirad]Normal attack
+[32][2/3][Suirad]Normal attack
+[33][3/3][Suirad]Normal attack
+[34][1/3][Lee song]Normal attack
+[35][2/3][Lee song]Normal attack
+[36][3/3][Lee song]Normal attack
+[37][1/3][Suirad]Normal attack
+[38][2/3][Suirad]Normal attack
+[39][3/3][Suirad]Normal attack
+[40][1/3][Lee song]Normal attack
+[41][2/3][Lee song]Normal attack
+[42][3/3][Lee song]Normal attack
+[43][1/3][Suirad]Normal attack
+[44][2/3][Suirad]Normal attack
+[45][3/3][Suirad]Normal attack
+[46][1/3][Lee song]Normal attack
+[Suirad]Died... [Lee song]is a WINNER 
+[37][1/3][Poisoner]Normal attack
+[38][2/3][Poisoner]Missed move.
+[39][3/3][Poisoner]Normal attack
+[40][1/3][Nerag]Normal attack
+[41][2/3][Nerag]Normal attack
+[42][3/3][Nerag]Normal attack
+[43][1/3][Poisoner]Missed move.
+[44][2/3][Poisoner]Normal attack
+[45][3/3][Poisoner]Normal attack
+[46][1/3][Poisoner]Missed move.
+[47][2/3][Poisoner]Normal attack
+[Nerag]Died... [Poisoner]is a WINNER 
+=================================================
+[Suirad] vs [Nerag]
+=================================================
+[Poisoner] vs [Lee song]
+[1][1/3][Lee song]Normal attack
+[2][2/3][Lee song]Normal attack
+[3][3/3][Lee song]Normal attack
+[1][1/3][Suirad]Normal attack
+[2][1/3][Suirad]Missed move.
+[3][2/3][Suirad]Poison applied to Nerag
+=================================================
+[The rock] vs [Lee song]
+=================================================
+[Kha six] vs [Luxia]
+GAME_APPLY_LOGS>[0][0/3] Kha six is losing tour caused by range difference.q3 [Luxia] ITS YOUR TURN!
+[1][1/3][Luxia]Magic damage dealt: 154,80
+[2][2/3][Luxia]Missed move.
+[3][3/3][Luxia]Normal attack
+[4][1/3][Kha six]Physical damage dealt: 270,60
+[5][2/3][Kha six]Physical damage dealt: 144,32
+[6][3/3][Kha six]Physical damage dealt: 144,32
+[7][1/3][Luxia]Missed move.
+[8][2/3][Luxia]Missed move.
+[9][3/3][Luxia]Healed: 104,00
+[1][1/3][The rock]Physical resist boosted: 40.0
+[2][2/3][The rock]Normal attack
+[3][3/3][The rock]Normal attack
+[4][1/3][Lee song]Attack damage boosted: 75.0
+[5][2/3][Lee song]Attack damage boosted: 85.0
+[6][3/3][Lee song]Tour point added.
+GAME_APPLY_LOGS>[6][0/3] The rock is losing tour caused by range difference.q1 [Lee song] ITS YOUR TURN!
+[7][1/3][Lee song]Attack damage boosted: 95.0
+[8][2/3][Lee song]Normal attack
+[9][3/3][Lee song]Missed move.
+[10][1/3][The rock]Thorns turned ON!
+[11][2/3][The rock]Normal attack
+[12][3/3][The rock]Normal attack
+[13][1/3][Lee song]Tour point added.
+[14][2/3][Lee song]Normal attack
+[15][3/3][Lee song]Normal attack
+[PASSIVE]Thorns hit [Lee song] for 18,32
+GAME_APPLY_LOGS>[15][0/3] The rock is losing tour caused by range difference.q1 [Lee song] ITS YOUR TURN!
+[16][1/3][Lee song]Normal attack
+[17][2/3][Lee song]Normal attack
+[18][3/3][Lee song]Normal attack
+[PASSIVE]Thorns hit [Lee song] for 27,48
+[19][1/3][The rock]Thorns turned ON!
+[20][2/3][The rock]Normal attack
+[21][3/3][The rock]Normal attack
+[22][1/3][Lee song]Normal attack
+[23][2/3][Lee song]Normal attack
+[24][3/3][Lee song]Normal attack
+[PASSIVE]Thorns hit [Lee song] for 27,48
+[25][1/3][The rock]Normal attack
+[26][2/3][The rock]Normal attack
+[27][3/3][The rock]Normal attack
+[28][1/3][Lee song]Healed: 134,40
+[29][2/3][Lee song]Normal attack
+[30][3/3][Lee song]Normal attack
+[PASSIVE]Thorns hit [Lee song] for 18,32
+[31][1/3][The rock]Normal attack
+[32][2/3][The rock]Missed move.
+[33][3/3][The rock]Normal attack
+[34][1/3][Lee song]Healed: 134,40
+[35][2/3][Lee song]Normal attack
+[36][3/3][Lee song]Normal attack
+[PASSIVE]Thorns hit [Lee song] for 18,32
+[37][1/3][The rock]Physical resist boosted: 45.0
+[38][2/3][The rock]Normal attack
+[39][3/3][The rock]Normal attack
+[40][1/3][Lee song]Healed: 134,40
+[41][2/3][Lee song]Normal attack
+[42][3/3][Lee song]Normal attack
+[PASSIVE]Thorns hit [Lee song] for 15,27
+[43][1/3][The rock]Normal attack
+[44][2/3][The rock]Normal attack
+[45][3/3][The rock]Normal attack
+[46][1/3][Lee song]Normal attack
+[47][2/3][Lee song]Normal attack
+[48][3/3][Lee song]Normal attack
+[PASSIVE]Thorns hit [Lee song] for 22,90
+[49][1/3][The rock]Normal attack
+[50][2/3][The rock]Normal attack
+[51][3/3][The rock]Normal attack
+[52][1/3][Lee song]Missed move.
+[53][2/3][Lee song]Normal attack
+[54][3/3][Lee song]Normal attack
+[PASSIVE]Thorns hit [Lee song] for 15,27
+[55][1/3][The rock]Normal attack
+[56][2/3][The rock]Normal attack
+[57][3/3][The rock]Normal attack
+[58][1/3][Lee song]Normal attack
+[59][2/3][Lee song]Normal attack
+[60][3/3][Lee song]Normal attack
+[PASSIVE]Thorns hit [Lee song] for 22,90
+[61][1/3][The rock]Normal attack
+[62][2/3][The rock]Normal attack
+[63][3/3][The rock]Normal attack
+[10][1/3][Luxia]Normal attack
+[11][2/3][Luxia]Normal attack
+[12][3/3][Luxia]Normal attack[LUCKY]
+[13][1/3][Luxia]Normal attack
+[14][2/3][Luxia]Normal attack
+[15][3/3][Luxia]Missed move.
+[16][1/3][Kha six]Normal attack
+[17][2/3][Kha six]Normal attack
+[18][3/3][Kha six]Normal attack
+[Luxia]Died... [Kha six]is a WINNER 
+[PASSIVE]Thorns hit [Lee song] for 0,00
+[64][1/3][The rock]Missed move.
+[65][2/3][The rock]Normal attack
+[Lee song]Died... [The rock]is a WINNER 
+=================================================
+[Kha six] vs [The rock]
+[1][1/3][The rock]Physical resist boosted: 40.0
+[2][2/3][The rock]Missed move.
+[3][3/3][The rock]Normal attack
+[4][1/3][Kha six]Physical damage dealt: 184,50
+[5][2/3][Kha six]Physical damage dealt: 98,40
+[6][3/3][Kha six]Physical damage dealt: 98,40
