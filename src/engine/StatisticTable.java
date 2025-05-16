@@ -44,8 +44,8 @@ public class StatisticTable {
     }
 
     public void displayBattleStatistics() {
-        Loggers.logMessage("[" + tm.getCurrentChampion().getName() + "] " + tm.getCurrentChampion().lessStats(), false, true);
-        Loggers.logMessage("[" + tm.getNextChampion().getName() + "] " + tm.getNextChampion().lessStats(), false, true);
+        Loggers.logMessage(null, "[" + tm.getCurrentChampion().getName() + "] " + tm.getCurrentChampion().lessStats(), false, true);
+        Loggers.logMessage(null, "[" + tm.getNextChampion().getName() + "] " + tm.getNextChampion().lessStats(), false, true);
     }
 
 }

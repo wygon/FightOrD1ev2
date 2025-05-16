@@ -8,6 +8,8 @@ import java.util.Scanner;
 import server.ClientData;
 import server.GameCommand;
 import textManagement.Loggers;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Fight implements Runnable {
 
@@ -32,12 +34,13 @@ public class Fight implements Runnable {
     }
 
     public void startGame() {
-        Loggers.logMessage("=================================================\n[" + tm.getCurrentChampion().getName() + "] vs [" + tm.getNextChampion().getName() + "]", true, false);
+//        LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"))
+        Loggers.logMessage(gameId, "=================================================\n[" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")) + "] Game: " + gameId + "\n[" + tm.getCurrentChampion().getName() + "] vs [" + tm.getNextChampion().getName() + "]", true, false);
         Loggers.clearScreen();
-        Loggers.logMessage("Champions description: " + tm.getCurrentChampion() + tm.getCurrentChampion().printAbilities() + tm.getNextChampion() + tm.getNextChampion().printAbilities(), false, true);
+        Loggers.logMessage(gameId, "Champions description: " + tm.getCurrentChampion() + tm.getCurrentChampion().printAbilities() + tm.getNextChampion() + tm.getNextChampion().printAbilities(), false, true);
         tm.whoStart();
-        Loggers.logMessage("Fight start: \n[" + tm.getCurrentPlayer().getName() + "] with his champion [" + tm.getCurrentChampion().getName() + "]", false, true);
-        Loggers.logMessage("His opponent is : \n[" + tm.getNextPlayer().getName() + "] with his champion [" + tm.getNextChampion().getName() + "]", false, true);
+//        Loggers.logMessage("Fight start: \n[" + tm.getCurrentPlayer().getName() + "] with his champion [" + tm.getCurrentChampion().getName() + "]", false, true);
+//        Loggers.logMessage("His opponent is : \n[" + tm.getNextPlayer().getName() + "] with his champion [" + tm.getNextChampion().getName() + "]", false, true);
         startFight();
     }
 
@@ -69,7 +72,7 @@ public class Fight implements Runnable {
             mess = "[ALMOST IMPOSSIBLE]TIE[" + tm.getNextChampion().getName() + "] and [" + tm.getCurrentChampion().getName() + "]DIED!";
         }
         if (!mess.equals("")) {
-            Loggers.logMessage(mess, true, true);
+            Loggers.logMessage(null, mess, true, true);
         }
     }
 
@@ -115,7 +118,7 @@ public class Fight implements Runnable {
             tm.effectsManagement();
             tm.rangeCheck();
             if (tm.getTourPoint() <= 2) {
-                Loggers.logMessage("[SERVER][" + tm.getCurrentPlayer().getName() + "][" + ally.getName() + "] ITS YOUR TURN!", false, true);
+                Loggers.logMessage(gameId, "[SERVER][" + tm.getCurrentPlayer().getName() + "][" + ally.getName() + "] ITS YOUR TURN!", false, true);
 //                info += "[" + tm.getCurrentPlayer().getName() + "][" + ally.getName() + "] ITS YOUR TURN!";
             }
             System.out.println("INFO VALUE:" + info);
@@ -124,16 +127,16 @@ public class Fight implements Runnable {
                 info = "";
                 String hp1 = String.format("%.2f", ally.getHP());
                 String hp2 = String.format("%.2f", enemy.getHP());
-                Loggers.logMessage(
+                Loggers.logMessage(gameId, 
                         "[" + ally.getName() + "] HP: " + hp1 + "\n"
                         + "[" + enemy.getName() + "] HP: " + hp2 + "\n\n"
                         + "Move: " + (tm.getTourPoint() + 1) + "/3\n"
                         + "[1]Attack [" + ally.getAttackDamage() + "]", false, true);
                 int i = 0;
                 for (Ability a : ally.getAbilities()) {
-                    Loggers.logMessage("[" + (i++ + 2) + "]" + a.getName() + " [" + a.getValue() + "]" + "[Uses " + a.getUsesLeft() + "]", false, true);
+                    Loggers.logMessage(gameId, "[" + (i++ + 2) + "]" + a.getName() + " [" + a.getValue() + "]" + "[Uses " + a.getUsesLeft() + "]", false, true);
                 }
-                Loggers.logMessage("""
+                Loggers.logMessage(gameId, """
                                 [10]See stats
                                 [99]End move
                                 [135]Forfeit
@@ -165,17 +168,17 @@ public class Fight implements Runnable {
                                 tm.useAbility(ability);
                                 tm.getCurrentPlayer().sendToMe(GameCommand.APPLY_ABILITY_COUNT + ">" + abilityIndex);
                             } else {
-                                Loggers.logMessage("Ability " + ability.getName() + " has no uses left!", false, true);
+                                Loggers.logMessage(gameId, "Ability " + ability.getName() + " has no uses left!", false, true);
                                 info += "Ability " + ability.getName() + " has no uses left!";
                             }
                         } else {
-                            Loggers.logMessage(ally.getName() + " does not have " + (abilityIndex + 2) + " abilities!", false, true);
+                            Loggers.logMessage(gameId, ally.getName() + " does not have " + (abilityIndex + 2) + " abilities!", false, true);
                             info += ally.getName() + " does not have " + (abilityIndex + 2) + " abilities!";
                         }
                         break;
                     case 10:
                         Loggers.clearScreen();
-                        Loggers.logMessage(ally.getName() + ":\n" + ally.lessStats(), false, true);
+                        Loggers.logMessage(gameId, ally.getName() + ":\n" + ally.lessStats(), false, true);
                         break;
                     case 99:
                         Loggers.clearScreen();
@@ -187,10 +190,10 @@ public class Fight implements Runnable {
                         Loggers.clearScreen();
                         break;
                     default:
-                        Loggers.logMessage("Invalid choice!", false, true);
+                        Loggers.logMessage(gameId, "Invalid choice!", false, true);
                         break;
                 }
-                Loggers.logMessage("=================================================", false, true);
+                Loggers.logMessage(gameId, "=================================================", false, true);
                 System.out.println("INFO VALUE IN WHILE:" + info);
                 sendActualInformation(info);
             }

@@ -1,0 +1,60 @@
+=================================================
+[13:24:11] Game: b2f06d8a
+[Poisoner] vs [Zoe]
+[1][1/3][Zoe]Tour point added.
+[2][2/3][Zoe]Magic damage dealt: 132,30
+[3][3/3][Zoe]Magic damage dealt: 132,30
+GAME_APPLY_LOGS>[3][0/3] Poisoner is losing tour caused by range difference.d [Zoe] ITS YOUR TURN!
+[4][1/3][Zoe]Missed move.
+[5][2/3][Zoe]Normal attack
+[6][3/3][Zoe]Tour point added.
+GAME_APPLY_LOGS>[6][0/3] Poisoner is losing tour caused by range difference.d [Zoe] ITS YOUR TURN!
+[7][1/3][Zoe]Normal attack[LUCKY]
+[8][2/3][Zoe]Tour point added.
+[9][3/3][Zoe]Missed move.
+GAME_APPLY_LOGS>[9][0/3] Poisoner is losing tour caused by range difference.d [Zoe] ITS YOUR TURN!
+[10][1/3][Zoe]Tour point added.
+[11][2/3][Zoe]Normal attack
+[12][3/3][Zoe]Missed move.
+GAME_APPLY_LOGS>[12][0/3] Poisoner is losing tour caused by range difference.d [Zoe] ITS YOUR TURN!
+[13][1/3][Zoe]Normal attack
+[14][2/3][Zoe]Normal attack[LUCKY]
+[15][3/3][Zoe]Normal attack
+[16][1/3][Poisoner]Poison applied to Zoe
+[17][2/3][Poisoner]Normal attack
+[18][3/3][Poisoner]Tour point added.
+[PASSIVE][Zoe] poisoned damage -50.0
+GAME_APPLY_LOGS>[18][0/3] Zoe is losing tour caused by range difference.zxc [Poisoner] ITS YOUR TURN!
+[19][1/3][Poisoner]Normal attack
+[20][2/3][Poisoner]Normal attack
+[21][3/3][Poisoner]Normal attack
+[PASSIVE][Zoe] poisoned damage -50.0
+[22][1/3][Zoe]Normal attack
+[23][2/3][Zoe]Normal attack
+[24][3/3][Zoe]Normal attack
+[25][1/3][Poisoner]Poison applied to Zoe
+[26][2/3][Poisoner]Missed move.
+[27][3/3][Poisoner]Normal attack
+[PASSIVE][Zoe] poisoned damage -100.0
+[28][1/3][Zoe]Normal attack[LUCKY]
+[29][2/3][Zoe]Normal attack
+[30][3/3][Zoe]Normal attack
+[31][1/3][Poisoner]Normal attack
+[32][2/3][Poisoner]Normal attack
+[33][3/3][Poisoner]Normal attack
+[PASSIVE][Zoe] poisoned damage -100.0
+[34][1/3][Zoe]Missed move.
+[35][2/3][Zoe]Normal attack[LUCKY]
+[36][3/3][Zoe]Normal attack
+[37][1/3][Poisoner]Tour point added.
+[PASSIVE][Poisoner] poison ended
+GAME_APPLY_LOGS>[37][0/3] Zoe is losing tour caused by range difference.zxc [Poisoner] ITS YOUR TURN!
+[38][1/3][Poisoner]Missed move.
+[39][1/3][Zoe]Normal attack
+[40][2/3][Zoe]Normal attack[LUCKY]
+[41][3/3][Zoe]Normal attack
+[42][1/3][Zoe]Normal attack
+[43][2/3][Zoe]Normal attack
+[44][3/3][Zoe]Normal attack
+[45][1/3][Zoe]Normal attack
+[46][2/3][Zoe]Normal attack

@@ -167,8 +167,8 @@ public class TurnManager {
                 }
             }
             Loggers.clearScreen();
-            Loggers.logMessage("=================================================", false, true);
-            Loggers.logMessage(mess, true, true);
+            Loggers.logMessage(cp.getGameId(), "=================================================", false, true);
+            Loggers.logMessage(cp.getGameId(), mess, true, true);
             ability.addUsesLeft(-1);
             f.sendLogMessage(getCurrentPlayer().getName(), mess);
         }
@@ -220,8 +220,8 @@ public class TurnManager {
             f.sendLogMessage(getCurrentPlayer().getName(), mess);
         }
         if (!mess.equals("")) {
-            Loggers.logMessage(mess, true, true);
-            Loggers.logMessage("=================================================", false, true);
+            Loggers.logMessage(cp.getGameId(), mess, true, true);
+            Loggers.logMessage(cp.getGameId(), "=================================================", false, true);
 //            f.sendLogMessage(mess);  
         }
     }
@@ -233,9 +233,9 @@ public class TurnManager {
             getNextChampion().addDistancePoint(-1);
 //            effectsManagement();
             String mess = GameCommand.APPLY_LOGS + ">" + "[" + getTotalMovesCount() + "][" + getTourPoint() + "/3] " + getCurrentChampion().getName() + " is losing tour caused by range difference.";
-            Loggers.logMessage(mess + "\n=================================================", false, true);
+            Loggers.logMessage(cp.getGameId(), mess + "\n=================================================", false, true);
             mess += getNextPlayer().getName() + " [" + getNextChampion().getName() + "] ITS YOUR TURN!";
-            Loggers.logMessage(mess, true, false);
+            Loggers.logMessage(cp.getGameId(), mess, true, false);
             setTourPoint(3);
             if(!mess.equals(GameCommand.APPLY_LOGS.toString() + ">"))
                 return mess;

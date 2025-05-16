@@ -3,8 +3,10 @@ package server;
 public enum GameCommand {
     CHAT("CHAT"),
     FIND("GAME_FIND"),
+    FIND_CANCEL("GAME_FIND_CANCEL"),
     FOUND("GAME_FOUND"),
     WAITING("GAME_WAITING"),
+    WAITING_CANCEL("GAME_WAITING_CANCEL"),
     START("GAME_START"),
     ATTACK("GAME_ATTACK"),
     APPLY_STATE("GAME_APPLY_STATE"),
@@ -17,6 +19,7 @@ public enum GameCommand {
     ENEMY_FORFEIT("GAME_ENEMY_FORFEIT"),
     OPPONENT_DISCONNECTED("GAME_OPPONENT_DISCONNECTED"),
     DISCONNECT("DISCONNECT");
+    
     private final String command;
 
     GameCommand(String command) {

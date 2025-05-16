@@ -135,7 +135,12 @@ public class ClientHandler extends Thread {
                 applyChampionCopy();
                 me.out.println(GameCommand.WAITING);
             }
-        } else if (command.equals(GameCommand.FORFEIT.toString())) {
+        } 
+        else if(command.equals(GameCommand.FIND_CANCEL.toString())){
+            playersQueue.remove(me);
+            me.out.println(GameCommand.WAITING_CANCEL);
+        }
+        else if (command.equals(GameCommand.FORFEIT.toString())) {
 //            Fight f = activeGames.get(me.gameId);
             String gameId = parts[1];
             Fight f = activeGames.get(gameId);

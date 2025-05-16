@@ -1,0 +1,41 @@
+=================================================
+[17:55:51] Game: ea2eb222
+[Dez] vs [The rock]
+[1][1/3][The rock]Missed move.
+[2][2/3][The rock]Normal attack
+[3][3/3][The rock]Normal attack
+[4][1/3][Dez]DOUBLE ATTACK!
+[5][2/3][Dez]DOUBLE ATTACK!
+[6][3/3][Dez]Normal attack
+[7][1/3][The rock]Normal attack
+[8][2/3][The rock]Normal attack
+[9][3/3][The rock]Normal attack
+[10][1/3][Dez]Normal attack
+[11][2/3][Dez]Normal attack
+[12][3/3][Dez]Normal attack
+[13][1/3][The rock]Normal attack
+[14][2/3][The rock]Normal attack
+[15][3/3][The rock]Normal attack
+[16][1/3][Dez]Normal attack
+[17][2/3][Dez]Normal attack
+[18][3/3][Dez]Normal attack
+[19][1/3][The rock]Normal attack
+[20][2/3][The rock]Normal attack
+[21][3/3][The rock]Normal attack
+[22][1/3][Dez]Normal attack
+[23][2/3][Dez]Normal attack
+[24][3/3][Dez]Normal attack
+[25][1/3][The rock]Missed move.
+[26][2/3][The rock]Normal attack
+[27][3/3][The rock]Normal attack
+[28][1/3][Dez]Normal attack
+[29][2/3][Dez]Normal attack
+[30][3/3][Dez]Normal attack
+[31][1/3][The rock]Normal attack
+[32][2/3][The rock]Normal attack
+[33][3/3][The rock]Normal attack
+[34][1/3][Dez]Normal attack
+[35][2/3][Dez]Normal attack
+[36][3/3][Dez]Missed move.
+[37][1/3][The rock]Normal attack
+[38][2/3][The rock]Normal attack

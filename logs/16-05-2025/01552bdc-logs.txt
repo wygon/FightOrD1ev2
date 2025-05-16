@@ -1,0 +1,26 @@
+=================================================
+[14:49:56] Game: 01552bdc
+[Huwaei] vs [Luxia]
+[1][1/3][Huwaei]Magic damage boosted: 100.0
+[2][2/3][Huwaei]Magic damage dealt: 89,25
+[3][3/3][Huwaei]Tour point added.
+GAME_APPLY_LOGS>[3][0/3] Luxia is losing tour caused by range difference.dd [Huwaei] ITS YOUR TURN!
+[4][1/3][Huwaei]Attack damage boosted: 55.0
+[5][2/3][Huwaei]Magic damage dealt: 153,00
+[6][3/3][Huwaei]Healed: 104,00
+GAME_APPLY_LOGS>[6][0/3] Luxia is losing tour caused by range difference.dd [Huwaei] ITS YOUR TURN!
+[7][1/3][Huwaei]Normal attack
+[8][2/3][Huwaei]Normal attack
+[9][3/3][Huwaei]Normal attack
+[1][1/3][Luxia]Normal attack
+[10][1/3][Luxia]Normal attack
+[2][2/3][Luxia]Normal attack[LUCKY]
+[11][2/3][Luxia]Normal attack
+[3][3/3][Luxia]Normal attack
+[12][3/3][Luxia]Normal attack
+[13][1/3][Huwaei]Normal attack
+[14][2/3][Huwaei]Normal attack
+[15][3/3][Huwaei]Normal attack
+[16][1/3][Luxia]Magic damage dealt: 330,00[LUCKY]
+[17][2/3][Luxia]Magic damage dealt: 158,40
+[18][3/3][Luxia]Magic damage dealt: 330,00

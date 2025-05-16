@@ -3,6 +3,7 @@ package textManagement;
 import main.FightOrD1e;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,16 +11,22 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public final class Loggers {
 
-    private final static String LOGS_FILE = "logs.txt";
+    private final static String LOGS_FILE = "-logs.txt";
     //this function is responsible for showing information to user in terminal or/and saving info to logs.txt
 
-    public final static void logMessage(String message, boolean log, boolean terminal) {
+    public final static void logMessage(String gameId, String message, boolean log, boolean terminal) {
         if (log) {
             try {
-                PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(LOGS_FILE, true)), true);
+                String path = "logs/" + LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+                File folder = new File(path);
+                if(!folder.exists()) folder.mkdirs();
+                String fileName =  path + "/" + gameId + LOGS_FILE;
+                PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(fileName, true)), true);
                 writer.println(message);
                 writer.close();
             } catch (IOException ex) {
@@ -38,7 +45,7 @@ public final class Loggers {
             String line = reader.readLine();
             String[] splitted = line.split(";");
             for (String word : splitted) {
-                logMessage(word, log, terminal);
+                logMessage("", word, log, terminal);
             }
             //line = reader.readLine();
             reader.close();
@@ -67,7 +74,7 @@ public final class Loggers {
                 choice = scanner.nextInt();
                 break;
             } catch (java.util.InputMismatchException e) {
-                Loggers.logMessage("Wrong input type. Try again.", false, true);
+                Loggers.logMessage(null, "Wrong input type. Try again.", false, true);
                 scanner.next();
             }
         }

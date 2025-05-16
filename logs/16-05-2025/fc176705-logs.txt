@@ -1,0 +1,4 @@
+=================================================
+[16:27:08] Game: fc176705
+[Huwaei] vs [Ka six]
+GAME_APPLY_LOGS>[0][0/3] Ka six is losing tour caused by range difference.gfd [Huwaei] ITS YOUR TURN!

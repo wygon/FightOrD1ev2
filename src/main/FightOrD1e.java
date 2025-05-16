@@ -21,11 +21,11 @@ public class FightOrD1e {
         Loggers.clearScreen();
         Map<String, Integer> fightWinners = new HashMap<>();
         Scanner input = new Scanner(System.in);
-        Loggers.logMessage("WELCOME IN Fight Or D1e - turn based game!", false, true);
-        Loggers.logMessage("Hi player! - enter your name\n[PLAYER 1]: ", false, true);
+        Loggers.logMessage(null, "WELCOME IN Fight Or D1e - turn based game!", false, true);
+        Loggers.logMessage(null, "Hi player! - enter your name\n[PLAYER 1]: ", false, true);
         String p1Name = input.nextLine();
         Loggers.clearScreen();
-        Loggers.logMessage("Hi player! - enter your name\n[PLAYER 2]: ", false, true);
+        Loggers.logMessage(null, "Hi player! - enter your name\n[PLAYER 2]: ", false, true);
         String p2Name = input.nextLine();
         Player p1 = new Player(p1Name);
         Player p2 = new Player(p2Name);
