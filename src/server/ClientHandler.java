@@ -62,15 +62,23 @@ public class ClientHandler extends Thread {
         try {
             // asks for a name
             clientName = in.readLine();
-
+            String[] cn = {clientName};
             System.out.println("[SERVER]" + clientName + " logged in.");
             sendToAll("SERVER", clientName + " logged in.");
 
+            boolean found = GameServer.clientsGameData.stream()
+                    .anyMatch(c -> c.name.equals(cn[0]));
+            if(!found){
+                ClientModel c = new ClientModel(clientName);
+                GameServer.clientsGameData.add(c);
+                GameServer.writeToDB(c);
+            }
+            
             // adds object with client data to container and prints updated clients list
             me = new ClientData(clientName, out);
             clients.add(me);
             printClients();
-
+            GameServer.applyClientModel(me);
             // in a loop reads info from client and send to others
             while (true) {
                 String info = in.readLine();
@@ -140,8 +148,35 @@ public class ClientHandler extends Thread {
             playersQueue.remove(me);
             me.out.println(GameCommand.WAITING_CANCEL);
         }
+        else if(command.equals(GameCommand.GET_STATS.toString())){
+            String target = parts[1];
+            String everyone = "";
+            for(var client : GameServer.clientsGameData){
+                everyone += client.getName() + ",";
+            }
+            Optional<ClientModel> model = GameServer.clientsGameData.stream()
+                    .filter(c -> c.name.equals(target))
+                    .findAny();
+            if(model.isPresent()){
+                ClientModel data = model.get();
+                me.out.println(GameCommand.GET_STATS.toString() + ">" + 
+                        data.name + ">" +
+                        data.totalGames + ">" +
+                        data.wins + ">" +
+                        data.loses + ">" +
+                        everyone
+                );
+            } else {
+                me.out.println(GameCommand.GET_STATS.toString() + ">" + 
+                        "CANT FIND PLAYER WITH THIS NICKNAME " + target + ">" +
+                        "ERROR" + ">" +
+                        "ERROR" + ">" +
+                        "ERROR" + ">" + 
+                        "NO CONTENT,NO CONTENT,NO CONTENT"
+                );
+            }
+        }
         else if (command.equals(GameCommand.FORFEIT.toString())) {
-//            Fight f = activeGames.get(me.gameId);
             String gameId = parts[1];
             Fight f = activeGames.get(gameId);
             ClientData winner;

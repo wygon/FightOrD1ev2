@@ -58,6 +58,7 @@ public class Fight implements Runnable {
         if (tm.getCurrentChampion().getHP() <= 0) {
             mess = "[" + tm.getCurrentChampion().getName() + "]Died... [" + tm.getNextChampion().getName() + "]is a WINNER ";
             tm.getNextPlayer().addWin();
+            tm.getCurrentPlayer().addLose();
             //Not working wgile first argument is Champion(and not String)
             setWinner(tm.getNextChampion());
             tm.getNextPlayer().sendToMe(GameCommand.RESULT_WIN.toString());
@@ -65,6 +66,7 @@ public class Fight implements Runnable {
         } else if (tm.getNextPlayer().getChampion().getHP() <= 0) {
             mess = "[" + tm.getNextChampion().getName() + "]Died... [" + tm.getCurrentChampion().getName() + "]is a WINNER ";
             tm.getCurrentPlayer().addWin();
+            tm.getNextPlayer().addLose();
             setWinner(tm.getCurrentChampion());
             tm.getCurrentPlayer().sendToMe(GameCommand.RESULT_WIN.toString());
             tm.getNextPlayer().sendToMe(GameCommand.RESULT_LOSE.toString());

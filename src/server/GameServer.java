@@ -13,6 +13,7 @@ public class GameServer {
 
     static final int PORT = 12345;
     private static List<ClientHandler> clients = new ArrayList<>();
+    static ArrayList<ClientModel> clientsGameData = new ArrayList<>();
     static ArrayList<Champion> championsList = new ArrayList<>();
     private static final String CHAMPIONS_SETTINGS = "champions.settings";
     
@@ -24,7 +25,9 @@ public class GameServer {
             System.out.println("Server has started");
             applyChampionsList();
             System.out.println("Champions written");
-//            System.out.println(championsList);
+            applyClientsGameData();
+            System.out.println("Applied clients game data");
+            System.out.println(clientsGameData);
             while (true) {
                 socket = s.accept();
                 System.out.println("New client has connected");
@@ -83,7 +86,6 @@ public class GameServer {
         champion.setMagicResist(Double.parseDouble(parts[5]));
         champion.setDistancePoint(Integer.parseInt(parts[6]));
     }
-
     //Applying abilities to champion
     private static void configureAbilities(Champion champion, String abilitiesPart) {
         String[] abilityParts = abilitiesPart.split("/");
@@ -92,5 +94,99 @@ public class GameServer {
             abilities[i] = Ability.fromString(abilityParts[i]);
         }
         champion.setAbilities(abilities);
+    }
+    
+    private static void applyClientsGameData(){
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader("players/data.csv"));
+            String line = reader.readLine();
+            while(line != null){
+                String[] playerData = line.split(";");
+                String name = playerData[0];
+                int totalGames = Integer.parseInt(playerData[1]);
+                int win = Integer.parseInt(playerData[2]);
+                int lose = Integer.parseInt(playerData[3]);
+                
+//                boolean found = clientsGameData.stream()
+//                        .anyMatch(c -> c.name.equals(name));
+//                if(!found){
+//                    clientsGameData.add(new ClientModel(name, totalGames, win, lose));
+//                }
+                clientsGameData.add(new ClientModel(name, totalGames, win, lose));
+                
+                line = reader.readLine();
+            }
+            reader.close();
+        }catch(Exception ex) {System.out.println("Error reading players model" + ex);}
+    }
+    
+//    public static void writeToDB(ClientModel newClient){
+//        System.out.println("WRITING TO DB" + newClient);
+//        try{
+//            BufferedWriter writer = new BufferedWriter(new FileWriter("players/data.csv", true));
+//            String[] data = newClient.getClientData();
+//            String finalData = "";
+//            for(String d : data) finalData += d + ";";
+//            
+//            writer.write(finalData);
+//            writer.newLine();
+//            writer.close();
+//            
+//        }catch(Exception ex) {System.out.println("Error with writing to DB" + ex);}
+//    }
+    public static void writeToDB(ClientModel newClient){
+        System.out.println("WRITING TO DB" + newClient);
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader("players/data.csv"));
+            List<String> lines = new ArrayList<>();
+            boolean updated = false;
+            
+            String line = reader.readLine();
+            while(line != null){
+                String[] parts = line.split(";");
+                String name = parts[0];
+                
+                if(newClient.name.equals(name)){
+                    String newData = String.join(";", newClient.getClientData());
+                    lines.add(newData);
+                    updated = true;
+                } else {
+                    lines.add(line);
+                }
+                line = reader.readLine();
+            }
+            reader.close();
+            
+            if(!updated){
+                String newData = String.join(";", newClient.getClientData());
+                lines.add(newData);
+            }
+            
+            String finalMessage = "";
+            
+            BufferedWriter writer = new BufferedWriter(new FileWriter("players/data.csv", false));
+            for(String l : lines) finalMessage += l + "\n";
+            
+            writer.write(finalMessage);
+            writer.close();
+            
+        }catch(Exception ex) {System.out.println("Error with writing to DB" + ex);}
+    }
+    
+    public static void updateDB(ClientModel updateClient){
+        System.out.println("UPDATING CLIENT" + updateClient);
+        writeToDB(updateClient);
+    }
+    
+    public static void applyClientModel(ClientData client){
+            Optional<ClientModel> optionalModel =
+                clientsGameData.stream()
+                .filter(model -> model.name.equals(client.name))
+                .findAny();
+            if(optionalModel.isPresent()){
+                client.setModel(optionalModel.get());
+            }else {
+                System.out.println("Error with setting model.");
+            }
     }
 }

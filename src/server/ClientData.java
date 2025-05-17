@@ -10,8 +10,8 @@ public class ClientData {
     String name;
     String chosenChampionName;
     Champion chosenChampion;
-    int wins;
     String gameId;
+    ClientModel model;
     
     private BlockingQueue<String> commands = new LinkedBlockingQueue<>();
 
@@ -20,7 +20,6 @@ public class ClientData {
         this.out = output;
         chosenChampionName = null;
         chosenChampion = null;
-        wins = 0;
         gameId = null;
     }
 
@@ -37,7 +36,7 @@ public class ClientData {
     }
 
     public int getWins() {
-        return wins;
+        return model.wins;
     }
 
     public Champion getChampion() {
@@ -53,7 +52,15 @@ public class ClientData {
     }
 
     public void addWin() {
-        this.wins++;
+        model.totalGames++;
+        model.wins++;
+        GameServer.updateDB(model);
+    }
+    
+    public void addLose() {
+        model.totalGames++;
+        model.loses++;
+        GameServer.updateDB(model);
     }
 
     public String getMyGameId() {
@@ -74,5 +81,11 @@ public class ClientData {
 
     public String getGameId() {
         return gameId;
+    }
+    public void setModel(ClientModel model){
+        this.model = model;
+    }    
+    public ClientModel getModel(){
+        return model;
     }
 }
