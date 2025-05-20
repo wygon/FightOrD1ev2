@@ -45,6 +45,11 @@ public class ClientHandler extends Thread {
             client.sendToMe("[" + senderName + "]" + message);
         }
     }
+    public void sendToAll(String message) {
+        for (ClientData client : clients) {
+            client.sendToMe(message);
+        }
+    }
 
     void printClients() {
         Iterator<ClientData> iterator = clients.iterator();
@@ -63,9 +68,11 @@ public class ClientHandler extends Thread {
             // asks for a name
             clientName = in.readLine();
             String[] cn = {clientName};
+            boolean isOnline = clients.stream()
+                    .anyMatch(c -> c.name.equals(cn[0]));
+            if(isOnline) return;
             System.out.println("[SERVER]" + clientName + " logged in.");
             sendToAll("SERVER", clientName + " logged in.");
-
             boolean found = GameServer.clientsGameData.stream()
                     .anyMatch(c -> c.name.equals(cn[0]));
             if(!found){
@@ -78,6 +85,11 @@ public class ClientHandler extends Thread {
             me = new ClientData(clientName, out);
             clients.add(me);
             printClients();
+            sendToAll(
+                GameCommand.UPDATE_USERS.toString() + ">" +
+                        clients.size() + ">" +
+                        activeGames.size()
+                );
             GameServer.applyClientModel(me);
             // in a loop reads info from client and send to others
             while (true) {
@@ -85,6 +97,11 @@ public class ClientHandler extends Thread {
                 if (info.equals("ENDLEAVEEND")) {
                     System.out.println("[SERVER]" + clientName + " logged out.");
                     sendToAll("SERVER", clientName + " logged out.");
+                    sendToAll(
+                    GameCommand.UPDATE_USERS.toString() + ">" +
+                            clients.size() + ">" +
+                            (activeGames.size() - 1)
+                    );
                     clients.remove(me);
                     in.close();
                     out.close();
@@ -135,6 +152,11 @@ public class ClientHandler extends Thread {
                         + me.name + ">"
                         + me.chosenChampionName);
                 activeGames.put(gameId, f);
+                sendToAll(
+                GameCommand.UPDATE_USERS.toString() + ">" +
+                        clients.size() + ">" +
+                        activeGames.size()
+                );
             } else {
                 playersQueue.add(me);
 //                Optional<Champion> mechamp = GameServer.championsList.stream()
@@ -144,6 +166,14 @@ public class ClientHandler extends Thread {
                 me.out.println(GameCommand.WAITING);
             }
         } 
+        else if(command.equals(GameCommand.END.toString())){
+            activeGames.remove(me.gameId);
+            sendToAll(
+                GameCommand.UPDATE_USERS.toString() + ">" +
+                        clients.size() + ">" +
+                        activeGames.size()
+                );
+        }
         else if(command.equals(GameCommand.FIND_CANCEL.toString())){
             playersQueue.remove(me);
             me.out.println(GameCommand.WAITING_CANCEL);
@@ -216,6 +246,8 @@ public class ClientHandler extends Thread {
             me.chosenChampion = new Mage((Mage) base);
         } else if (base instanceof Fighter) {
             me.chosenChampion = new Fighter((Fighter) base);
+        } else if (base instanceof LifeStealer) {
+            me.chosenChampion = new LifeStealer((LifeStealer) base);
         } else if (base instanceof Tank) {
             me.chosenChampion = new Tank((Tank) base);
         }
@@ -228,5 +260,10 @@ public class ClientHandler extends Thread {
                 + winner.name.toUpperCase() + " CONGRATULATIONS");
 //        f.end();
         activeGames.remove(gameId);
+        sendToAll(
+            GameCommand.UPDATE_USERS.toString() + ">" +
+                    clients.size() + ">" +
+                    activeGames.size()
+            );
     }
 }

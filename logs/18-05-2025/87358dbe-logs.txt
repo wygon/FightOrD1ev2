@@ -1,0 +1,13 @@
+=================================================
+[21:32:23] Game: 87358dbe
+[e-rasmus] vs [Healer]
+GAME_APPLY_LOGS>[0][0/3] e-rasmus is losing tour caused by range difference.wqeeqwewqe [Healer] ITS YOUR TURN!
+[1][1/3][Healer]Normal attack
+[2][2/3][Healer]Normal attack
+[3][3/3][Healer]Normal attack
+[4][1/3][e-rasmus]Normal attack
+[5][2/3][e-rasmus]Normal attack
+[6][3/3][e-rasmus]Normal attack
+[7][1/3][Healer]Normal attack
+[8][2/3][Healer]Normal attack[LUCKY]
+[9][3/3][Healer]Normal attack[LUCKY]
