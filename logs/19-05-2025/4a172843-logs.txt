@@ -1,6 +1,0 @@
-=================================================
-[20:11:11] Game: 4a172843
-[Zoe] vs [Butcher]
-[1][1/3][Zoe]Normal attack[LUCKY]
-[2][2/3][Zoe]Missed move.
-[3][3/3][Zoe]Normal attack

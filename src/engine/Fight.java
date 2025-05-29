@@ -10,6 +10,38 @@ import server.GameCommand;
 import textManagement.Loggers;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+class FightTimer extends Thread {
+    private int duration;
+    private boolean isOn;
+    
+    public FightTimer(){
+        duration = 0;
+        isOn =  true;
+    }
+    
+    @Override
+    public void run(){
+        while(isOn){
+            try {
+                Thread.sleep(1000);
+                duration++;
+            } catch (InterruptedException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+    }
+    
+    public void stopCounting(){
+        isOn = false;
+    }
+    @Override
+    public String toString(){
+        return String.valueOf(duration);
+    }
+}
 
 public class Fight implements Runnable {
 
@@ -34,25 +66,25 @@ public class Fight implements Runnable {
     }
 
     public void startGame() {
-//        LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"))
         Loggers.logMessage(gameId, "=================================================\n[" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")) + "] Game: " + gameId + "\n[" + tm.getCurrentChampion().getName() + "] vs [" + tm.getNextChampion().getName() + "]", true, false);
         Loggers.clearScreen();
         Loggers.logMessage(gameId, "Champions description: " + tm.getCurrentChampion() + tm.getCurrentChampion().printAbilities() + tm.getNextChampion() + tm.getNextChampion().printAbilities(), false, true);
         tm.whoStart();
-//        Loggers.logMessage("Fight start: \n[" + tm.getCurrentPlayer().getName() + "] with his champion [" + tm.getCurrentChampion().getName() + "]", false, true);
-//        Loggers.logMessage("His opponent is : \n[" + tm.getNextPlayer().getName() + "] with his champion [" + tm.getNextChampion().getName() + "]", false, true);
         startFight();
     }
 
     //Start fight 
     public void startFight() {
         tm.setTotalMovesCount(0);
+        FightTimer timer = new FightTimer();
+        timer.start();
         fightLoop();
-        end();
+        timer.stopCounting();
+        end(String.valueOf(timer));
     }
     
 //    @Override
-    public void end() {
+    public void end(String time) {
         st.displayBattleStatistics();
         String mess = "";
         if (tm.getCurrentChampion().getHP() <= 0) {
@@ -61,20 +93,20 @@ public class Fight implements Runnable {
             tm.getCurrentPlayer().addLose();
             //Not working wgile first argument is Champion(and not String)
             setWinner(tm.getNextChampion());
-            tm.getNextPlayer().sendToMe(GameCommand.RESULT_WIN.toString());
-            tm.getCurrentPlayer().sendToMe(GameCommand.RESULT_LOSE.toString());
+            tm.getNextPlayer().sendToMe(GameCommand.RESULT_WIN.toString() + ">" + time);
+            tm.getCurrentPlayer().sendToMe(GameCommand.RESULT_LOSE.toString() + ">" + time);
         } else if (tm.getNextPlayer().getChampion().getHP() <= 0) {
             mess = "[" + tm.getNextChampion().getName() + "]Died... [" + tm.getCurrentChampion().getName() + "]is a WINNER ";
             tm.getCurrentPlayer().addWin();
             tm.getNextPlayer().addLose();
             setWinner(tm.getCurrentChampion());
-            tm.getCurrentPlayer().sendToMe(GameCommand.RESULT_WIN.toString());
-            tm.getNextPlayer().sendToMe(GameCommand.RESULT_LOSE.toString());
+            tm.getCurrentPlayer().sendToMe(GameCommand.RESULT_WIN.toString() + ">" + time);
+            tm.getNextPlayer().sendToMe(GameCommand.RESULT_LOSE.toString() + ">" + time);
         } else {
             mess = "[ALMOST IMPOSSIBLE]TIE[" + tm.getNextChampion().getName() + "] and [" + tm.getCurrentChampion().getName() + "]DIED!";
         }
         if (!mess.equals("")) {
-            Loggers.logMessage(null, mess, true, true);
+            Loggers.logMessage(gameId, mess, true, true);
         }
     }
 
@@ -121,29 +153,11 @@ public class Fight implements Runnable {
             tm.rangeCheck();
             if (tm.getTourPoint() <= 2) {
                 Loggers.logMessage(gameId, "[SERVER][" + tm.getCurrentPlayer().getName() + "][" + ally.getName() + "] ITS YOUR TURN!", false, true);
-//                info += "[" + tm.getCurrentPlayer().getName() + "][" + ally.getName() + "] ITS YOUR TURN!";
             }
             System.out.println("INFO VALUE:" + info);
             sendActualInformation(info);
             while (!tm.isGameOver() && tm.getTourPoint() <= 2) {
                 info = "";
-                String hp1 = String.format("%.2f", ally.getHP());
-                String hp2 = String.format("%.2f", enemy.getHP());
-                Loggers.logMessage(gameId, 
-                        "[" + ally.getName() + "] HP: " + hp1 + "\n"
-                        + "[" + enemy.getName() + "] HP: " + hp2 + "\n\n"
-                        + "Move: " + (tm.getTourPoint() + 1) + "/3\n"
-                        + "[1]Attack [" + ally.getAttackDamage() + "]", false, true);
-                int i = 0;
-                for (Ability a : ally.getAbilities()) {
-                    Loggers.logMessage(gameId, "[" + (i++ + 2) + "]" + a.getName() + " [" + a.getValue() + "]" + "[Uses " + a.getUsesLeft() + "]", false, true);
-                }
-                Loggers.logMessage(gameId, """
-                                [10]See stats
-                                [99]End move
-                                [135]Forfeit
-                                [0]Wyczysc""", false, true);
-//                wybor = Loggers.choiceValidator(input);
                 String moveStr = "-1";
                 try {
                     moveStr = tm.getCurrentPlayer().takeCommand();

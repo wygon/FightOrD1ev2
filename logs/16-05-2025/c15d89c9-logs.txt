@@ -1,4 +1,0 @@
-=================================================
-[14:18:26] Game: c15d89c9
-[Healer] vs [Ka six]
-GAME_APPLY_LOGS>[0][0/3] Ka six is losing tour caused by range difference.eas [Healer] ITS YOUR TURN!

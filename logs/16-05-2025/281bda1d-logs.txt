@@ -1,4 +1,0 @@
-=================================================
-[14:49:44] Game: 281bda1d
-[Luxia] vs [The rock]
-GAME_APPLY_LOGS>[0][0/3] The rock is losing tour caused by range difference.aaa [Luxia] ITS YOUR TURN!

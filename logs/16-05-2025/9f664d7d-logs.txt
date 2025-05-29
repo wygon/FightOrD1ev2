@@ -1,4 +1,0 @@
-=================================================
-[17:37:25] Game: 9f664d7d
-[The rock] vs [Huwaei]
-GAME_APPLY_LOGS>[0][0/3] The rock is losing tour caused by range difference.asd [Huwaei] ITS YOUR TURN!

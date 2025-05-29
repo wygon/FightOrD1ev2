@@ -45,6 +45,7 @@ public class ClientHandler extends Thread {
             client.sendToMe("[" + senderName + "]" + message);
         }
     }
+
     public void sendToAll(String message) {
         for (ClientData client : clients) {
             client.sendToMe(message);
@@ -70,26 +71,28 @@ public class ClientHandler extends Thread {
             String[] cn = {clientName};
             boolean isOnline = clients.stream()
                     .anyMatch(c -> c.name.equals(cn[0]));
-            if(isOnline) return;
+            if (isOnline) {
+                return;
+            }
             System.out.println("[SERVER]" + clientName + " logged in.");
             sendToAll("SERVER", clientName + " logged in.");
             boolean found = GameServer.clientsGameData.stream()
                     .anyMatch(c -> c.name.equals(cn[0]));
-            if(!found){
+            if (!found) {
                 ClientModel c = new ClientModel(clientName);
                 GameServer.clientsGameData.add(c);
                 GameServer.writeToDB(c);
             }
-            
+
             // adds object with client data to container and prints updated clients list
             me = new ClientData(clientName, out);
             clients.add(me);
             printClients();
             sendToAll(
-                GameCommand.UPDATE_USERS.toString() + ">" +
-                        clients.size() + ">" +
-                        activeGames.size()
-                );
+                    GameCommand.UPDATE_USERS.toString() + ">"
+                    + clients.size() + ">"
+                    + activeGames.size()
+            );
             GameServer.applyClientModel(me);
             // in a loop reads info from client and send to others
             while (true) {
@@ -98,9 +101,9 @@ public class ClientHandler extends Thread {
                     System.out.println("[SERVER]" + clientName + " logged out.");
                     sendToAll("SERVER", clientName + " logged out.");
                     sendToAll(
-                    GameCommand.UPDATE_USERS.toString() + ">" +
-                            clients.size() + ">" +
-                            (activeGames.size() - 1)
+                            GameCommand.UPDATE_USERS.toString() + ">"
+                            + clients.size() + ">"
+                            + (activeGames.size() - 1)
                     );
                     clients.remove(me);
                     in.close();
@@ -134,9 +137,6 @@ public class ClientHandler extends Thread {
             me.chosenChampionName = championName;
             if (!playersQueue.isEmpty()) {
                 ClientData enemy = playersQueue.poll();
-//                Optional<Champion> mechamp = GameServer.championsList.stream()
-//                        .filter(p -> p.getName().equals(me.chosenChampionName))
-//                        .findAny();
                 applyChampionCopy();
                 String gameId = UUID.randomUUID().toString().substring(0, 8);
                 Fight f = new Fight(gameId, me, enemy, fightWinners);
@@ -153,69 +153,65 @@ public class ClientHandler extends Thread {
                         + me.chosenChampionName);
                 activeGames.put(gameId, f);
                 sendToAll(
-                GameCommand.UPDATE_USERS.toString() + ">" +
-                        clients.size() + ">" +
-                        activeGames.size()
+                        GameCommand.UPDATE_USERS.toString() + ">"
+                        + clients.size() + ">"
+                        + activeGames.size()
                 );
             } else {
                 playersQueue.add(me);
-//                Optional<Champion> mechamp = GameServer.championsList.stream()
-//                        .filter(p -> p.getName().equals(me.chosenChampionName))
-//                        .findAny();
                 applyChampionCopy();
                 me.out.println(GameCommand.WAITING);
             }
-        } 
-        else if(command.equals(GameCommand.END.toString())){
+        } else if (command.equals(GameCommand.END.toString())) {
             activeGames.remove(me.gameId);
             sendToAll(
-                GameCommand.UPDATE_USERS.toString() + ">" +
-                        clients.size() + ">" +
-                        activeGames.size()
-                );
-        }
-        else if(command.equals(GameCommand.FIND_CANCEL.toString())){
+                    GameCommand.UPDATE_USERS.toString() + ">"
+                    + clients.size() + ">"
+                    + activeGames.size()
+            );
+        } else if (command.equals(GameCommand.FIND_CANCEL.toString())) {
             playersQueue.remove(me);
             me.out.println(GameCommand.WAITING_CANCEL);
-        }
-        else if(command.equals(GameCommand.GET_STATS.toString())){
+        } else if (command.equals(GameCommand.GET_STATS.toString())) {
             String target = parts[1];
             String everyone = "";
-            for(var client : GameServer.clientsGameData){
+            for (var client : GameServer.clientsGameData) {
                 everyone += client.getName() + ",";
             }
             Optional<ClientModel> model = GameServer.clientsGameData.stream()
                     .filter(c -> c.name.equals(target))
                     .findAny();
-            if(model.isPresent()){
+            if (model.isPresent()) {
                 ClientModel data = model.get();
-                me.out.println(GameCommand.GET_STATS.toString() + ">" + 
-                        data.name + ">" +
-                        data.totalGames + ">" +
-                        data.wins + ">" +
-                        data.loses + ">" +
-                        everyone
+                me.out.println(GameCommand.GET_STATS.toString() + ">"
+                        + data.name + ">"
+                        + data.totalGames + ">"
+                        + data.wins + ">"
+                        + data.loses + ">"
+                        + everyone
                 );
             } else {
-                me.out.println(GameCommand.GET_STATS.toString() + ">" + 
-                        "CANT FIND PLAYER WITH THIS NICKNAME " + target + ">" +
-                        "ERROR" + ">" +
-                        "ERROR" + ">" +
-                        "ERROR" + ">" + 
-                        "NO CONTENT,NO CONTENT,NO CONTENT"
+                me.out.println(GameCommand.GET_STATS.toString() + ">"
+                        + "CANT FIND PLAYER WITH THIS NICKNAME " + target + ">"
+                        + "NULL" + ">"
+                        + "NULL" + ">"
+                        + "NULL" + ">"
+                        + everyone
                 );
             }
-        }
-        else if (command.equals(GameCommand.FORFEIT.toString())) {
+        } else if (command.equals(GameCommand.FORFEIT.toString())) {
             String gameId = parts[1];
             Fight f = activeGames.get(gameId);
             ClientData winner;
-            me.out.println(GameCommand.FORFEIT);
+            me.out.println(GameCommand.FORFEIT + ">" +
+                        "0");
             if (me == f.tm.getCurrentPlayer()) {
-                f.tm.getNextPlayer().out.println(GameCommand.ENEMY_FORFEIT.toString());
+                f.tm.getNextPlayer().out.println(GameCommand.ENEMY_FORFEIT.toString() + ">" +
+                        "0");
                 winner = f.tm.getNextPlayer();
             } else {
-                f.tm.getCurrentPlayer().out.println(GameCommand.ENEMY_FORFEIT.toString());
+                f.tm.getCurrentPlayer().out.println(GameCommand.ENEMY_FORFEIT.toString() + ">" +
+                        "0");
                 winner = f.tm.getCurrentPlayer();
             }
 
@@ -237,8 +233,8 @@ public class ClientHandler extends Thread {
 
     private void applyChampionCopy() {
         Optional<Champion> mechamp = GameServer.championsList.stream()
-                        .filter(p -> p.getName().equals(me.chosenChampionName))
-                        .findAny();
+                .filter(p -> p.getName().equals(me.chosenChampionName))
+                .findAny();
         Champion base = mechamp.get();
         if (base instanceof Assasin) {
             me.chosenChampion = new Assasin((Assasin) base);
@@ -258,12 +254,11 @@ public class ClientHandler extends Thread {
                 + f.tm.getCurrentPlayer().name + " & "
                 + f.tm.getNextPlayer().name + "\n WON "
                 + winner.name.toUpperCase() + " CONGRATULATIONS");
-//        f.end();
         activeGames.remove(gameId);
         sendToAll(
-            GameCommand.UPDATE_USERS.toString() + ">" +
-                    clients.size() + ">" +
-                    activeGames.size()
-            );
+                GameCommand.UPDATE_USERS.toString() + ">"
+                + clients.size() + ">"
+                + activeGames.size()
+        );
     }
 }

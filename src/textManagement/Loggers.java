@@ -25,7 +25,7 @@ public final class Loggers {
                 String path = "logs/" + LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
                 File folder = new File(path);
                 if(!folder.exists()) folder.mkdirs();
-                String fileName =  path + "/" + gameId + LOGS_FILE;
+                String fileName =  path + "/GAME-" + gameId + LOGS_FILE;
                 PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(fileName, true)), true);
                 writer.println(message);
                 writer.close();
